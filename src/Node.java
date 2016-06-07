@@ -30,9 +30,10 @@ public class Node {
         this.allSprings = allSprings;
     }
 
-    public void draw(Graphics2D g, float scale, Vec2f offset) {
-        int x = (int)(physics.getLocation().x * scale + offset.x);
-        int y = (int)(physics.getLocation().y * scale + offset.y);
+    public void draw(Graphics2D g, float scale, Vec2f offset, double angle, Vec2f rectCentrum) {
+        Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, rectCentrum);
+        int x = (int)(tempVec.x * scale + offset.x);
+        int y = (int)(tempVec.y * scale + offset.y);
         Color oldColor = g.getColor();
         g.setColor(new Color(oldColor.getRed(), oldColor.getGreen(), oldColor.getBlue(), alpha));
         g.drawOval(x - 2, y - 2, 4, 4);
@@ -40,7 +41,7 @@ public class Node {
         g.drawString(name, x, y);
         g.setColor(oldColor);
         for (Node child : children) {
-            child.draw(g, scale, offset);
+            child.draw(g, scale, offset, angle, rectCentrum);
         }
     }
 
@@ -99,10 +100,6 @@ public class Node {
     }
 
     public void addChild(Node child) {
-        /*for (Node n : children) {
-            Spring s = new Spring(child, n, 10, 100, false);
-            springs.add(s);
-        }*/
         children.add(child);
         child.setParent(this);
         Spring mainSpring = new Spring(this, child, 50, 50, true);
@@ -142,27 +139,38 @@ public class Node {
         }
     }
 
-    public int[] getBoundingBox() {
-        int x = (int)physics.getLocation().x;
-        int y = (int)physics.getLocation().y;
+    public int[] getBoundingBox(double angle, Vec2f lastCentrum) {
+        Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
+        int x = (int)tempVec.x;
+        int y = (int)tempVec.y;
         int[] rect = new int[] {x, y, x, y};
-        getBoundingBox(rect);
+        getBoundingBox(rect, angle, lastCentrum);
         return rect;
     }
 
-    private void getBoundingBox(int[] rect) {
-        int x = (int)physics.getLocation().x;
-        int y = (int)physics.getLocation().y;
+    private void getBoundingBox(int[] rect, double angle, Vec2f lastCentrum) {
+        Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
+        int x = (int)tempVec.x;
+        int y = (int)tempVec.y;
         if (rect[0] > x) {rect[0] = x;}
         if (rect[1] > y) {rect[1] = y;}
         if (rect[2] < x) {rect[2] = x;}
         if (rect[3] < y) {rect[3] = y;}
         for (Node child : children) {
-            child.getBoundingBox(rect);
+            child.getBoundingBox(rect, angle, lastCentrum);
         }
     }
 
     public void setParent(Node parent) {
         this.parent = parent;
+    }
+
+    public List<Vec2f> getListOfPositions() {
+        List<Vec2f> positions = new ArrayList<>();
+        positions.add(getPhysicsNode().getLocation());
+        for (Node child : children) {
+            positions.addAll(child.getListOfPositions());
+        }
+        return positions;
     }
 }

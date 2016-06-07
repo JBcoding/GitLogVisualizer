@@ -18,14 +18,16 @@ public class Spring {
         nodes = new Node[] {node1, node2};
     }
 
-    public void draw(Graphics2D g, float scale, Vec2f offset) {
+    public void draw(Graphics2D g, float scale, Vec2f offset, double angle, Vec2f rectCentrum) {
         if (!visible) {
             return;
         }
-        int x1 = (int)(physics.getLocation(0).x * scale + offset.x);
-        int y1 = (int)(physics.getLocation(0).y * scale + offset.y);
-        int x2 = (int)(physics.getLocation(1).x * scale + offset.x);
-        int y2 = (int)(physics.getLocation(1).y * scale + offset.y);
+        Vec2f tempVec1 = Visualizer.rotateVecter(physics.getLocation(0), angle, rectCentrum);
+        Vec2f tempVec2 = Visualizer.rotateVecter(physics.getLocation(1), angle, rectCentrum);
+        int x1 = (int)(tempVec1.x * scale + offset.x);
+        int y1 = (int)(tempVec1.y * scale + offset.y);
+        int x2 = (int)(tempVec2.x * scale + offset.x);
+        int y2 = (int)(tempVec2.y * scale + offset.y);
         Color oldColor = g.getColor();
         g.setColor(new Color(oldColor.getRed(), oldColor.getGreen(), oldColor.getBlue(), Math.min(nodes[0].getAlpha(), nodes[1].getAlpha())));
         g.drawLine(x1, y1, x2, y2);
