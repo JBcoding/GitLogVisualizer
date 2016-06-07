@@ -1,0 +1,685 @@
+commit 1a7260d1c97703ca61289d1e78312587c3cda4d3
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Sun May 8 22:52:01 2016 +0200
+
+    All new tests
+
+M	PM2000/src/app/Activity.java
+A	PM2000/test/UseCaseTests/CaseAddDateToActivityTest.java
+A	PM2000/test/UseCaseTests/CaseAddUserToActivityTest.java
+A	PM2000/test/UseCaseTests/CaseCreateActivityTest.java
+A	PM2000/test/UseCaseTests/CaseCreateProjectTest.java
+A	PM2000/test/UseCaseTests/CaseCreateUserTest.java
+A	PM2000/test/UseCaseTests/CaseHelperTimeTest.java
+A	PM2000/test/UseCaseTests/CasePlanningTest.java
+A	PM2000/test/UseCaseTests/CaseSuperUserToNormalUserTest.java
+A	PM2000/test/UseCaseTests/CaseTimeRegistrationTest.java
+A	PM2000/test/UseCaseTests/CaseUserToSuperUserTest.java
+
+commit 1b55935c95effb0e8435998188c05995ada475d6
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 20:44:26 2016 +0200
+
+    Last commit
+
+M	PM2000/src/UI/ActivitySummary.java
+M	PM2000/src/UI/CreateActivity.java
+M	PM2000/src/UI/ProjectSummary.java
+M	PM2000/src/UI/RegisterTimePanel.java
+M	PM2000/src/UI/UserSchedule.java
+M	PM2000/src/app/Activity.java
+M	PM2000/test/standardTests/ActivityTest.java
+M	PM2000/test/standardTests/DayTest.java
+M	PM2000/test/standardTests/ProjectTest.java
+M	PM2000/test/standardTests/QuarterTest.java
+M	PM2000/test/standardTests/SimpleCalendarTest.java
+M	PM2000/test/standardTests/UserTest.java
+M	PM2000/test/testSetsTests/AddDateToActivityTest.java
+M	PM2000/test/testSetsTests/AddUserToActivityTest.java
+M	PM2000/test/testSetsTests/CreateActivityTest.java
+M	PM2000/test/testSetsTests/PlanningTest.java
+M	PM2000/test/testSetsTests/TimeRegistrationTest.java
+
+commit 0d1df6ca85dd11b6af2037afcdc4128f08d64c03
+Merge: 6d0c17a 706c28a
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 19:28:58 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 6d0c17a51229cd1103380999e36ce04c91ae6271
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 19:28:53 2016 +0200
+
+    Last edits
+
+M	PM2000/src/UI/CreateActivity.java
+M	PM2000/src/UI/CreateProject.java
+M	PM2000/src/UI/CreateUser.java
+M	PM2000/src/app/Activity.java
+M	PM2000/src/app/SimpleCalendar.java
+M	PM2000/test/standardTests/ActivityTest.java
+
+commit 706c28a8767871faea7bd7ee9dc37bc529421588
+Author: Johnny <jnye77@hotmail.com>
+Date:   Fri May 6 19:03:09 2016 +0200
+
+    Rettet diverse design fejl, som fuckede med koden
+
+M	PM2000/src/UI/ActivitySummary.java
+M	PM2000/src/UI/InfoSummary.java
+M	PM2000/src/UI/ManageActivities.java
+M	PM2000/src/UI/ManageProjects.java
+M	PM2000/src/UI/ProjectSummary.java
+M	PM2000/src/UI/RegisterAssistance.java
+M	PM2000/src/UI/RegisterTimePanel.java
+M	PM2000/src/UI/style.css
+M	PM2000/src/UI/styleWork.css
+
+commit 38fd3b5c46e0534708e5d5deffa22945b131900b
+Author: Johnny <jnye77@hotmail.com>
+Date:   Fri May 6 18:19:02 2016 +0200
+
+    Design givet
+
+M	PM2000/src/UI/ActivitySummary.java
+M	PM2000/src/UI/AdminPanel.java
+M	PM2000/src/UI/CreateActivity.java
+M	PM2000/src/UI/CreateProject.java
+M	PM2000/src/UI/CreateUser.java
+M	PM2000/src/UI/DeleteUser.java
+M	PM2000/src/UI/InfoSummary.java
+M	PM2000/src/UI/LoginScreen.java
+M	PM2000/src/UI/ManageActivities.java
+M	PM2000/src/UI/ManageProjects.java
+M	PM2000/src/UI/ProjectSummary.java
+M	PM2000/src/UI/RegisterTimePanel.java
+M	PM2000/src/UI/ToggleSuperUsers.java
+M	PM2000/src/UI/UserPanel.java
+M	PM2000/src/UI/UserSchedule.java
+M	PM2000/src/UI/WorkCalender.java
+A	PM2000/src/UI/style.css
+A	PM2000/src/UI/styleWork.css
+
+commit aef0249c819a377d5a5b0de352e2130d1f060aa4
+Merge: 4a0e53a 78da5b3
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 18:14:52 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 4a0e53a4839e2f3341de684fb37564fdfa08d3d9
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 18:14:44 2016 +0200
+
+    Added helper functionality
+
+M	PM2000/src/UI/ProjectSummary.java
+M	PM2000/src/UI/RegisterAssistance.java
+M	PM2000/src/UI/UserPanel.java
+M	PM2000/src/app/PM2000.java
+M	PM2000/test/standardTests/PM2000Test.java
+
+commit 78da5b31651c8495469c60a1d345b60091b33589
+Author: Frederik <Frederik.franklin.eriksen@gmail.com>
+Date:   Fri May 6 18:09:52 2016 +0200
+
+    Navne skift
+
+M	PM2000/test/standardTests/ActivityTest.java
+M	PM2000/test/standardTests/ProjectTest.java
+M	PM2000/test/standardTests/SimpleCalendarTest.java
+M	PM2000/test/standardTests/UserTest.java
+
+commit 8d6c7fbb80bb2d57733337b1f7dea7d6b7bfee06
+Author: Frederik <Frederik.franklin.eriksen@gmail.com>
+Date:   Fri May 6 18:01:05 2016 +0200
+
+    Sidste jUnit tests
+
+M	PM2000/test/standardTests/SimpleCalendarTest.java
+M	PM2000/test/standardTests/UserTest.java
+
+commit d12fb2476a43609cb02f3d964e2225e36e05525a
+Merge: ed9067f 0eb2bc8
+Author: Frederik <Frederik.franklin.eriksen@gmail.com>
+Date:   Fri May 6 17:46:43 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit ed9067f44158cde8cf63551034e78d769f87a6ce
+Author: Frederik <Frederik.franklin.eriksen@gmail.com>
+Date:   Fri May 6 17:46:18 2016 +0200
+
+    Sidste jUnit tests
+
+M	PM2000/test/standardTests/ActivityTest.java
+M	PM2000/test/standardTests/SimpleCalendarTest.java
+M	PM2000/test/standardTests/UserTest.java
+
+commit 0eb2bc8e2cb631b4f864705f75a018d69ee84b76
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 17:15:58 2016 +0200
+
+    Project Summeray Done
+
+M	PM2000/src/UI/ActivitySummary.java
+M	PM2000/src/UI/ManageActivities.java
+M	PM2000/src/UI/ProjectSummary.java
+
+commit 9e93c192408d43701c5046ce60d07a8d470172c9
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 17:13:16 2016 +0200
+
+    Little  more fix in ActivitySummary
+
+M	PM2000/src/UI/ActivitySummary.java
+
+commit 57be7ef7e7ba1ab551ffbb5586076ba266478c92
+Merge: bf40e4f 294582d
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 16:35:37 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #	PM2000/src/UI/UserPanel.java
+
+commit bf40e4f99e9cad154ff2bf28edb56ee00d8ae1ac
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 16:35:15 2016 +0200
+
+    Little fix in ActivitySummary
+
+M	PM2000/src/UI/ActivitySummary.java
+M	PM2000/src/UI/UserPanel.java
+
+commit 294582d3a1586fb9fc1fff5637dd1ff282c3aedd
+Author: Frederik <Frederik.franklin.eriksen@gmail.com>
+Date:   Fri May 6 16:32:41 2016 +0200
+
+    Project.toString
+
+M	PM2000/src/UI/UserPanel.java
+M	PM2000/src/app/Project.java
+M	PM2000/test/standardTests/ProjectTest.java
+
+commit ebc0085c1f15381feb2aad36f093b62568191edd
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 16:14:10 2016 +0200
+
+    Added Project Summary and Activity Summary
+
+M	PM2000/src/UI/ActivitySummary.java
+
+commit d1aac9fbb6329751237d8792b9d952450968bb38
+Merge: d1bac4d 06e3d0b
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 16:13:27 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #	PM2000/src/UI/UserPanel.java
+
+commit d1bac4d80ad25121aed751f0d8d500830827d88f
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 16:13:03 2016 +0200
+
+    Added Project Summary and Activity Summary
+
+A	PM2000/src/UI/ActivitySummary.java
+A	PM2000/src/UI/InfoSummary.java
+M	PM2000/src/UI/ProjectSummary.java
+M	PM2000/src/UI/UserPanel.java
+
+commit 06e3d0b97e7c3fb03c691e5b6ce7a895b96250b8
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 16:09:24 2016 +0200
+
+    Work Calender is done
+
+M	PM2000/src/UI/RegisterTimePanel.java
+M	PM2000/src/UI/WorkCalender.java
+M	PM2000/src/app/Day.java
+M	PM2000/src/app/SimpleCalendar.java
+
+commit b62e51d7fe73096ade520a9ceda1917761a81560
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 15:34:31 2016 +0200
+
+    Fixed minor bug
+
+M	PM2000/src/UI/RegisterTimePanel.java
+M	PM2000/src/UI/WorkCalender.java
+
+commit 6ac8933bde3b312af80e6ad811c7d56d94677e4a
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 15:27:30 2016 +0200
+
+    Added RegisterTime
+
+M	PM2000/src/UI/ManageActivities.java
+A	PM2000/src/UI/RegisterTimePanel.java
+M	PM2000/src/UI/UserPanel.java
+M	PM2000/src/UI/UserSchedule.java
+M	PM2000/src/UI/WorkCalender.java
+M	PM2000/src/app/Day.java
+M	PM2000/src/app/SimpleCalendar.java
+M	PM2000/src/app/User.java
+
+commit d31601a6b98d66289ac1e807f2e6ce8d73049e37
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 13:18:57 2016 +0200
+
+    activity double id fiksed
+
+M	PM2000/src/app/Activity.java
+
+commit ab58aef241f801a598e3c2958695016b2eb8033b
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 13:12:35 2016 +0200
+
+    UserSchedule added
+
+M	PM2000/src/UI/UserPanel.java
+M	PM2000/src/UI/UserSchedule.java
+M	PM2000/src/app/User.java
+
+commit 98451d50015b201e26465e024e3e3a5a05a1070b
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 12:33:50 2016 +0200
+
+    More minor bug fiks
+
+M	PM2000/src/UI/ManageProjects.java
+
+commit 8b8ca42c055434d6aa72615da0006fb27cad5d2f
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 12:26:36 2016 +0200
+
+    Minor bug fiks
+
+M	PM2000/src/UI/ManageActivities.java
+M	PM2000/src/UI/ManageProjects.java
+
+commit 13be0cbdf8afb61a0e576fd09cbec4a4c40fb672
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 12:10:47 2016 +0200
+
+    ManageActivity fixed
+
+M	PM2000/src/UI/CreateActivity.java
+M	PM2000/src/UI/ManageActivities.java
+M	PM2000/src/UI/ManageProjects.java
+M	PM2000/src/app/Activity.java
+
+commit 46e1b1a223073ab6e80ae9e9aee22b9c01044f7b
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 11:58:20 2016 +0200
+
+    Added userpanel for users and Projetleaders
+
+M	PM2000/src/UI/UserPanel.java
+
+commit 517ec60826ec983ed6a75b15c57e3491c6edb4f0
+Merge: b108859 5cc66bc
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 11:56:05 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit b10885937047d80eb62f5734c19e0e17c0433c62
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Fri May 6 11:55:42 2016 +0200
+
+    Added userpanel for users and Projetleaders
+
+M	PM2000/src/UI/LoginScreen.java
+A	PM2000/src/UI/ProjectSummary.java
+A	PM2000/src/UI/RegisterAssistance.java
+A	PM2000/src/UI/UserPanel.java
+A	PM2000/src/UI/UserSchedule.java
+A	PM2000/src/UI/WorkCalender.java
+
+commit 5cc66bc10991a6718982da7a3d0f51da5950ade9
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 11:50:44 2016 +0200
+
+    ManageActivity added
+
+A	PM2000/src/UI/ManageActivities.java
+M	PM2000/src/UI/ManageProjects.java
+M	PM2000/src/app/User.java
+
+commit 66ff739f3a84ae331f0c034cdd33f37a54959521
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 11:09:13 2016 +0200
+
+    CreateActivity added
+
+A	PM2000/src/UI/CreateActivity.java
+M	PM2000/src/UI/DeleteUser.java
+
+commit 223f90b69b541973eeeb3c8aa1f22b4383cd769a
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 10:49:29 2016 +0200
+
+    Fiksed UserID nameing
+
+M	PM2000/src/app/PM2000.java
+
+commit 0590bfce38c52078b9c5887ab55c316c05dd423c
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri May 6 10:44:36 2016 +0200
+
+    Done with Manage projects
+
+M	PM2000/src/UI/DeleteUser.java
+M	PM2000/src/UI/ManageProjects.java
+M	PM2000/src/UI/ToggleSuperUsers.java
+M	PM2000/src/app/PM2000.java
+A	PM2000/src/app/PM2000State.java
+
+commit 11c0de63e5e40303fae5811a949511f37f8a1c8a
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Tue May 3 16:46:50 2016 +0200
+
+    Added user project status to project manage
+
+M	PM2000/src/UI/ManageProjects.java
+M	PM2000/src/UI/ToggleSuperUsers.java
+
+commit 0a1a89444e294c8b516ebf8ec6c924341bda4d3e
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Tue May 3 16:05:33 2016 +0200
+
+    More functionality to Manage Projects
+
+M	PM2000/src/UI/ManageProjects.java
+
+commit be6d681ebc08f3856ed811a26cad3ae9e557158d
+Merge: 5881805 4b90c74
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Tue May 3 15:59:23 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 5881805afa133c3b8719159723d50f5c77000f94
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Tue May 3 15:59:07 2016 +0200
+
+    Save and loads automatically
+
+M	PM2000/src/UI/LoginScreen.java
+M	PM2000/src/app/Activity.java
+M	PM2000/src/app/Day.java
+M	PM2000/src/app/NegativeTimeException.java
+M	PM2000/src/app/PM2000.java
+M	PM2000/src/app/Project.java
+M	PM2000/src/app/Quarter.java
+M	PM2000/src/app/SimpleCalendar.java
+M	PM2000/src/app/User.java
+
+commit 4b90c744cd8c2501e866ad15c7c741342ed62fc7
+Author: magnus0512 <magnusdal10@hotmail.com>
+Date:   Tue May 3 13:50:21 2016 +0200
+
+    Made a delete function for Project manage
+
+A	PM2000/.idea/libraries/hamcrest_core_1_3.xml
+A	PM2000/.idea/libraries/junit_4_12.xml
+A	PM2000/.idea/vcs.xml
+M	PM2000/src/UI/ManageProjects.java
+
+commit 33dee9fb2df8a1c4d16fe0e436b0dac967b11617
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon May 2 16:33:45 2016 +0200
+
+    Added most of the admin UI
+
+A	PM2000/src/UI/AdminPanel.java
+A	PM2000/src/UI/CreateProject.java
+A	PM2000/src/UI/CreateUser.java
+A	PM2000/src/UI/DeleteUser.java
+M	PM2000/src/UI/LoginScreen.java
+A	PM2000/src/UI/ManageProjects.java
+A	PM2000/src/UI/ToggleSuperUsers.java
+M	PM2000/src/app/Project.java
+M	PM2000/src/app/User.java
+
+commit ade1e21081e1c426c9784e5e076e63b26d01abc6
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon May 2 13:24:58 2016 +0200
+
+    missing src files added
+
+A	PM2000/src/app/Activity.java
+A	PM2000/src/app/Day.java
+A	PM2000/src/app/NegativeTimeException.java
+A	PM2000/src/app/PM2000.java
+A	PM2000/src/app/Project.java
+A	PM2000/src/app/Quarter.java
+A	PM2000/src/app/SimpleCalendar.java
+A	PM2000/src/app/User.java
+
+commit 31a9002381b9f530eb08bb1b8852236b43b4bf31
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon May 2 13:23:37 2016 +0200
+
+    Loginscreen added
+
+D	PM2000/src/Activity.java
+D	PM2000/src/Day.java
+D	PM2000/src/NegativeTimeException.java
+D	PM2000/src/PM2000.java
+D	PM2000/src/Project.java
+D	PM2000/src/Quarter.java
+D	PM2000/src/SimpleCalendar.java
+A	PM2000/src/UI/LoginScreen.java
+D	PM2000/src/User.java
+M	PM2000/test/standardTests/ProjectTest.java
+M	PM2000/test/standardTests/UserTest.java
+
+commit e8cedf92e2499408e19f72050f4efdf1a2b6459a
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Tue Apr 26 21:00:33 2016 +0200
+
+    PM2000 is now fully implemented
+
+M	PM2000/src/Activity.java
+M	PM2000/src/PM2000.java
+M	PM2000/src/Project.java
+M	PM2000/src/User.java
+A	PM2000/test/BeforeAndAfterTest.java
+M	PM2000/test/standardTests/ActivityTest.java
+M	PM2000/test/standardTests/DayTest.java
+M	PM2000/test/standardTests/PM2000Test.java
+M	PM2000/test/standardTests/ProjectTest.java
+M	PM2000/test/standardTests/QuarterTest.java
+M	PM2000/test/standardTests/SimpleCalendarTest.java
+M	PM2000/test/standardTests/UserTest.java
+M	PM2000/test/testSetsTests/AddDateToActivityTest.java
+M	PM2000/test/testSetsTests/AddUserToActivityTest.java
+M	PM2000/test/testSetsTests/CreateActivityTest.java
+M	PM2000/test/testSetsTests/CreateProjectTest.java
+M	PM2000/test/testSetsTests/CreateUserTest.java
+M	PM2000/test/testSetsTests/NormalUserToSuperUserTest.java
+M	PM2000/test/testSetsTests/PlanningTest.java
+M	PM2000/test/testSetsTests/SuperUserToNormalUserTest.java
+M	PM2000/test/testSetsTests/TimeRegistrationTest.java
+
+commit d18b144d2cd15c3d836db68fff4a6848578f4f05
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 25 16:52:17 2016 +0200
+
+    PM2000 is now half implemented, so you could say PM1000 HAHAHHAHAHAHA
+
+M	PM2000/src/Activity.java
+M	PM2000/src/Day.java
+M	PM2000/src/NegativeTimeException.java
+M	PM2000/src/Quarter.java
+M	PM2000/src/SimpleCalendar.java
+M	PM2000/src/User.java
+M	PM2000/test/standardTests/ActivityTest.java
+M	PM2000/test/standardTests/DayTest.java
+M	PM2000/test/standardTests/UserTest.java
+M	PM2000/test/testSetsTests/AddUserToActivityTest.java
+
+commit 9519dadeba947afdb1dd0f864307ad3c8cd58853
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 18 16:31:28 2016 +0200
+
+    Added the last of JUint tests
+
+A	PM2000/test/testSetsTests/AddDateToActivityTest.java
+M	PM2000/test/testSetsTests/AddUserToActivityTest.java
+A	PM2000/test/testSetsTests/PlanningTest.java
+A	PM2000/test/testSetsTests/TimeRegistrationTest.java
+
+commit c144c805b27d42d34f312b5b87d3c4ffadd184b1
+Author: Frederik <Frederik.franklin.eriksen@gmail.com>
+Date:   Mon Apr 18 16:29:00 2016 +0200
+
+     Opret Aktivitet tests lavet
+
+A	PM2000/test/testSetsTests/CreateActivityTest.java
+
+commit f4512a1a60deb4e6388d024165a162a05ddec603
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 18 15:03:58 2016 +0200
+
+    quick fix
+
+M	PM2000/src/Activity.java
+
+commit 03748d54293b9f1d89232335797dcb21f343930a
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 18 15:02:06 2016 +0200
+
+    Old JUint tests added back in
+
+M	PM2000/src/Activity.java
+A	PM2000/test/standardTests/ActivityTest.java
+A	PM2000/test/standardTests/DayTest.java
+A	PM2000/test/standardTests/PM2000Test.java
+A	PM2000/test/standardTests/ProjectTest.java
+A	PM2000/test/standardTests/QuarterTest.java
+A	PM2000/test/standardTests/SimpleCalendarTest.java
+A	PM2000/test/standardTests/UserTest.java
+A	PM2000/test/testSetsTests/AddUserToActivityTest.java
+A	PM2000/test/testSetsTests/NormalUserToSuperUserTest.java
+M	PM2000/test/testSetsTests/SuperUserToNormalUserTest.java
+
+commit 67f653036a0424de734ac139a9aeb890f75bb4dd
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 18 14:40:27 2016 +0200
+
+    Even more JUint cases added
+
+M	PM2000/src/Activity.java
+M	PM2000/src/Project.java
+M	PM2000/src/User.java
+D	PM2000/test/ActivityTest.java
+D	PM2000/test/DayTest.java
+D	PM2000/test/PM2000Test.java
+D	PM2000/test/ProjectTest.java
+D	PM2000/test/QuarterTest.java
+D	PM2000/test/SimpleCalendarTest.java
+D	PM2000/test/UserTest.java
+A	PM2000/test/testSetsTests/CreateProjectTest.java
+A	PM2000/test/testSetsTests/CreateUserTest.java
+A	PM2000/test/testSetsTests/SuperUserToNormalUserTest.java
+
+commit 78afb98827be2d3f52ca46a6ac1a70be128db1b6
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 11 16:35:03 2016 +0200
+
+    Added JUint tests for all classes except PM2000
+
+M	PM2000/src/Project.java
+M	PM2000/src/User.java
+M	PM2000/test/ActivityTest.java
+M	PM2000/test/ProjectTest.java
+M	PM2000/test/UserTest.java
+
+commit adcdb7e6bddc060a49d518c2f155f4e8c5423196
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 11 15:10:32 2016 +0200
+
+    Added JUint tests for Quater, Day, Activity and SimpleCalendar
+
+M	PM2000/src/Activity.java
+M	PM2000/src/Day.java
+A	PM2000/src/NegativeTimeException.java
+M	PM2000/src/Project.java
+M	PM2000/src/Quarter.java
+M	PM2000/src/SimpleCalendar.java
+M	PM2000/src/User.java
+M	PM2000/test/ActivityTest.java
+M	PM2000/test/DayTest.java
+M	PM2000/test/PM2000Test.java
+M	PM2000/test/QuarterTest.java
+M	PM2000/test/SimpleCalendarTest.java
+
+commit 01ceb8b9226b842a1a01d96752972013d925badd
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 4 16:10:09 2016 +0200
+
+    init setup libs
+
+M	.idea/libraries/hamcrest_core_1_3.xml
+A	.idea/uiDesigner.xml
+
+commit 89a5056cda0a334d32c520d504b8867f7cf3bced
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 4 15:56:40 2016 +0200
+
+    init setup done
+
+A	.idea/libraries/junit_4_12.xml
+A	PM2000/src/Activity.java
+A	PM2000/src/Day.java
+A	PM2000/src/Project.java
+A	PM2000/src/Quarter.java
+A	PM2000/src/SimpleCalendar.java
+A	PM2000/src/User.java
+A	PM2000/test/ActivityTest.java
+A	PM2000/test/DayTest.java
+A	PM2000/test/PM2000Test.java
+D	PM2000/test/PM2000_test.java
+A	PM2000/test/ProjectTest.java
+A	PM2000/test/QuarterTest.java
+A	PM2000/test/SimpleCalendarTest.java
+A	PM2000/test/UserTest.java
+
+commit 38b48c7fabc98f6e6e7116b4c28dc46b2bda198d
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 4 15:49:41 2016 +0200
+
+    init setup
+
+M	.idea/libraries/hamcrest_core_1_3.xml
+A	PM2000/src/PM2000.java
+A	PM2000/test/PM2000_test.java
+D	src/PM2000.java
+D	test/PM2000_test.java
+
+commit 8369f3b6e075f79a9c80e17e23b739dc1530cfd4
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 4 15:31:56 2016 +0200
+
+    init
+
+A	.idea/libraries/hamcrest_core_1_3.xml
+A	src/PM2000.java
+A	test/PM2000_test.java
+
+commit 35e802285f0355e0d633e7a750e5db54829a096d
+Author: JBcoding <mads12bjoern@gmail.com>
+Date:   Mon Apr 4 15:16:50 2016 +0200
+
+    Initial commit
+
+A	.gitignore
+A	LICENSE
