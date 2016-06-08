@@ -174,7 +174,8 @@ public class Node {
         Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
         int x = (int)tempVec.x;
         int y = (int)tempVec.y;
-        int[] rect = new int[] {x, y, x, y};
+        float radius = physics.getRadius();
+        int[] rect = new int[] {(int) (x - radius), (int) (y - radius), (int) (x + radius), (int) (y + radius)};
         getBoundingBox(rect, angle, lastCentrum);
         return rect;
     }
@@ -183,10 +184,11 @@ public class Node {
         Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
         int x = (int)tempVec.x;
         int y = (int)tempVec.y;
-        if (rect[0] > x) {rect[0] = x;}
-        if (rect[1] > y) {rect[1] = y;}
-        if (rect[2] < x) {rect[2] = x;}
-        if (rect[3] < y) {rect[3] = y;}
+        float radius = physics.getRadius();
+        if (rect[0] > x - radius) {rect[0] = (int) (x - radius);}
+        if (rect[1] > y - radius) {rect[1] = (int) (y - radius);}
+        if (rect[2] < x + radius) {rect[2] = (int) (x + radius);}
+        if (rect[3] < y + radius) {rect[3] = (int) (y + radius);}
         for (Node child : children) {
             child.getBoundingBox(rect, angle, lastCentrum);
         }

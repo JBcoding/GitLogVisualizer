@@ -1,685 +1,722 @@
-commit 1a7260d1c97703ca61289d1e78312587c3cda4d3
+commit 1e74a62a3a2f3018c0c8ff221b67896bb4071269
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Sun May 8 22:52:01 2016 +0200
+Date:   Sun Apr 17 16:18:40 2016 +0200
 
-    All new tests
+    Delay, Statement and If menus are done
 
-M	PM2000/src/app/Activity.java
-A	PM2000/test/UseCaseTests/CaseAddDateToActivityTest.java
-A	PM2000/test/UseCaseTests/CaseAddUserToActivityTest.java
-A	PM2000/test/UseCaseTests/CaseCreateActivityTest.java
-A	PM2000/test/UseCaseTests/CaseCreateProjectTest.java
-A	PM2000/test/UseCaseTests/CaseCreateUserTest.java
-A	PM2000/test/UseCaseTests/CaseHelperTimeTest.java
-A	PM2000/test/UseCaseTests/CasePlanningTest.java
-A	PM2000/test/UseCaseTests/CaseSuperUserToNormalUserTest.java
-A	PM2000/test/UseCaseTests/CaseTimeRegistrationTest.java
-A	PM2000/test/UseCaseTests/CaseUserToSuperUserTest.java
+M	src/ConditionalExecution.java
+M	src/Constant.java
+M	src/IfComponent.java
+A	src/UI/DelayMenu.java
+M	src/UI/Flowduino.java
+A	src/UI/IfMenu.java
+A	src/UI/Menu.java
+A	src/UI/StatementMenu.java
+M	src/UI/VariablesMenu.java
+M	src/Variable.java
 
-commit 1b55935c95effb0e8435998188c05995ada475d6
+commit 8721225ddb88572a204d25909b7ae38f539faee5
+Merge: fef67d0 0a65a60
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 20:44:26 2016 +0200
-
-    Last commit
-
-M	PM2000/src/UI/ActivitySummary.java
-M	PM2000/src/UI/CreateActivity.java
-M	PM2000/src/UI/ProjectSummary.java
-M	PM2000/src/UI/RegisterTimePanel.java
-M	PM2000/src/UI/UserSchedule.java
-M	PM2000/src/app/Activity.java
-M	PM2000/test/standardTests/ActivityTest.java
-M	PM2000/test/standardTests/DayTest.java
-M	PM2000/test/standardTests/ProjectTest.java
-M	PM2000/test/standardTests/QuarterTest.java
-M	PM2000/test/standardTests/SimpleCalendarTest.java
-M	PM2000/test/standardTests/UserTest.java
-M	PM2000/test/testSetsTests/AddDateToActivityTest.java
-M	PM2000/test/testSetsTests/AddUserToActivityTest.java
-M	PM2000/test/testSetsTests/CreateActivityTest.java
-M	PM2000/test/testSetsTests/PlanningTest.java
-M	PM2000/test/testSetsTests/TimeRegistrationTest.java
-
-commit 0d1df6ca85dd11b6af2037afcdc4128f08d64c03
-Merge: 6d0c17a 706c28a
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 19:28:58 2016 +0200
+Date:   Mon Mar 28 21:47:58 2016 +0200
 
     Merge remote-tracking branch 'origin/master'
 
-commit 6d0c17a51229cd1103380999e36ce04c91ae6271
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 19:28:53 2016 +0200
+commit fef67d05970efd94e7cc6b05aac73d347de04245
+Author: Mads, Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Mon Mar 28 21:47:48 2016 +0200
 
-    Last edits
+    Drag and drop between multiple applications now supported
 
-M	PM2000/src/UI/CreateActivity.java
-M	PM2000/src/UI/CreateProject.java
-M	PM2000/src/UI/CreateUser.java
-M	PM2000/src/app/Activity.java
-M	PM2000/src/app/SimpleCalendar.java
-M	PM2000/test/standardTests/ActivityTest.java
+M	src/UI/Flowduino.java
 
-commit 706c28a8767871faea7bd7ee9dc37bc529421588
-Author: Johnny <jnye77@hotmail.com>
-Date:   Fri May 6 19:03:09 2016 +0200
+commit 0a65a608754022cc6add3edd658c6af4e17c05d4
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Mon Mar 28 21:29:54 2016 +0200
 
-    Rettet diverse design fejl, som fuckede med koden
+    Begun work on new menus
 
-M	PM2000/src/UI/ActivitySummary.java
-M	PM2000/src/UI/InfoSummary.java
-M	PM2000/src/UI/ManageActivities.java
-M	PM2000/src/UI/ManageProjects.java
-M	PM2000/src/UI/ProjectSummary.java
-M	PM2000/src/UI/RegisterAssistance.java
-M	PM2000/src/UI/RegisterTimePanel.java
-M	PM2000/src/UI/style.css
-M	PM2000/src/UI/styleWork.css
+A	.idea/dictionaries/mathias.xml
+D	arduinos/Adafruit_Atmega32u4_Breakout.svg
+D	arduinos/ArduPilotMega_v15_breadboard.svg
+D	arduinos/Arduino Nano3_breadboard.svg
+D	arduinos/Arduino-BLE-LowPower-RevB-final_5_breadboard.svg
+D	arduinos/Arduino-Ethernet-v11_breadboard.svg
+D	arduinos/Arduino-Fio-v22_bottom_breadboard.svg
+D	arduinos/Arduino-Fio-v22_breadboard.svg
+D	arduinos/Arduino-Mini-v5_breadboard.svg
+D	arduinos/Arduino-Pro-Mini-v13_breadboard.svg
+D	arduinos/ArduinoBluetoothMatev13_breadboard.svg
+D	arduinos/Arduino_ADK_MEGA_2560-Rev3_breadboard.svg
+D	arduinos/Arduino_DUE_V02b_breadboard.svg
+D	arduinos/Arduino_Esplora_breadboard.svg
+D	arduinos/Arduino_Ethernet_breadboard.svg
+D	arduinos/Arduino_Leonardo_Rev3_breadboard.svg
+D	arduinos/Arduino_MEGA_2560-Rev3_breadboard.svg
+D	arduinos/Arduino_Micro_Rev03_breadboard.svg
+D	arduinos/Arduino_Motor_Shield_rev3_breadboard.svg
+D	arduinos/Arduino_Pro_breadboard.svg
+D	arduinos/Arduino_bt07_breadboard.svg
+D	arduinos/Ardumoto v13_breadboard.svg
+D	arduinos/arduinoXbeere_breadboard.svg
+D	arduinos/arduino_Uno_Rev3_breadboard-old.svg
+D	arduinos/arduino_Uno_Rev3_breadboard.svg
+D	arduinos/arduino_Yun(rev1)_breadboard.svg
+D	arduinos/arduino_mini_usb_adapter.svg
+D	arduinos/arduino_uno(rev3)-icsp(1)_breadboard.svg
+D	arduinos/arduino_uno(rev3)-icsp_breadboard.svg
+M	src/PeripheralFunction.java
+A	src/PeripheralFunctionComponent.java
+A	src/UI/Arduino.java
+A	src/UI/PeripheralFunctionMenu.java
+A	src/UI/ProjectSettings.java
+A	src/UI/ProjectSettingsMenu.java
+M	src/UI/VariablesMenu.java
+M	test/TestNode.java
 
-commit 38fd3b5c46e0534708e5d5deffa22945b131900b
-Author: Johnny <jnye77@hotmail.com>
-Date:   Fri May 6 18:19:02 2016 +0200
+commit 69879d54329621e304a690ee5873dba16d8a2edf
+Author: Mads, Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Mon Mar 28 21:22:19 2016 +0200
 
-    Design givet
+    Drag and drop between components added
 
-M	PM2000/src/UI/ActivitySummary.java
-M	PM2000/src/UI/AdminPanel.java
-M	PM2000/src/UI/CreateActivity.java
-M	PM2000/src/UI/CreateProject.java
-M	PM2000/src/UI/CreateUser.java
-M	PM2000/src/UI/DeleteUser.java
-M	PM2000/src/UI/InfoSummary.java
-M	PM2000/src/UI/LoginScreen.java
-M	PM2000/src/UI/ManageActivities.java
-M	PM2000/src/UI/ManageProjects.java
-M	PM2000/src/UI/ProjectSummary.java
-M	PM2000/src/UI/RegisterTimePanel.java
-M	PM2000/src/UI/ToggleSuperUsers.java
-M	PM2000/src/UI/UserPanel.java
-M	PM2000/src/UI/UserSchedule.java
-M	PM2000/src/UI/WorkCalender.java
-A	PM2000/src/UI/style.css
-A	PM2000/src/UI/styleWork.css
+M	src/UI/Flowduino.java
 
-commit aef0249c819a377d5a5b0de352e2130d1f060aa4
-Merge: 4a0e53a 78da5b3
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 18:14:52 2016 +0200
+commit 0d53def2ed734189b27e0e619bbe25e91c359606
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Mon Mar 28 12:58:42 2016 +0200
 
-    Merge remote-tracking branch 'origin/master'
+    Added variablesmenu and new shapes for components
 
-commit 4a0e53a4839e2f3341de684fb37564fdfa08d3d9
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 18:14:44 2016 +0200
+M	images/Break.png
+M	images/Delay.png
+M	images/Endif.png
+M	images/Endloop.png
+M	images/If.png
+M	images/Loop.png
+M	images/Statement.png
+M	src/Constant.java
+M	src/UI/Flowduino.java
+A	src/UI/VariablesMenu.java
+M	src/UI/style.css
 
-    Added helper functionality
+commit 567bda61bf1ed279796c636329945c1320c5cdfb
+Author: Mads, Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Sat Mar 26 12:47:24 2016 +0100
 
-M	PM2000/src/UI/ProjectSummary.java
-M	PM2000/src/UI/RegisterAssistance.java
-M	PM2000/src/UI/UserPanel.java
-M	PM2000/src/app/PM2000.java
-M	PM2000/test/standardTests/PM2000Test.java
+    Added copying and pasting, setupconstructors for peripherals,
 
-commit 78da5b31651c8495469c60a1d345b60091b33589
-Author: Frederik <Frederik.franklin.eriksen@gmail.com>
-Date:   Fri May 6 18:09:52 2016 +0200
+M	Blocks/LED.fd
+M	Blocks/Serial.fd
+A	arduinos/Adafruit_Atmega32u4_Breakout.svg
+A	arduinos/ArduPilotMega_v15_breadboard.svg
+A	arduinos/Arduino Nano3_breadboard.svg
+A	arduinos/Arduino-BLE-LowPower-RevB-final_5_breadboard.svg
+A	arduinos/Arduino-Ethernet-v11_breadboard.svg
+A	arduinos/Arduino-Fio-v22_bottom_breadboard.svg
+A	arduinos/Arduino-Fio-v22_breadboard.svg
+A	arduinos/Arduino-Mini-v5_breadboard.svg
+A	arduinos/Arduino-Pro-Mini-v13_breadboard.svg
+A	arduinos/ArduinoBluetoothMatev13_breadboard.svg
+A	arduinos/Arduino_ADK_MEGA_2560-Rev3_breadboard.svg
+A	arduinos/Arduino_DUE_V02b_breadboard.svg
+A	arduinos/Arduino_Esplora_breadboard.svg
+A	arduinos/Arduino_Ethernet_breadboard.svg
+A	arduinos/Arduino_Leonardo_Rev3_breadboard.svg
+A	arduinos/Arduino_MEGA_2560-Rev3_breadboard.svg
+A	arduinos/Arduino_Micro_Rev03_breadboard.svg
+A	arduinos/Arduino_Motor_Shield_rev3_breadboard.svg
+A	arduinos/Arduino_Pro_breadboard.svg
+A	arduinos/Arduino_bt07_breadboard.svg
+A	arduinos/Ardumoto v13_breadboard.svg
+A	arduinos/arduinoXbeere_breadboard.svg
+A	arduinos/arduino_Uno_Rev3_breadboard-old.svg
+A	arduinos/arduino_Uno_Rev3_breadboard.svg
+A	arduinos/arduino_Yun(rev1)_breadboard.svg
+A	arduinos/arduino_mini_usb_adapter.svg
+A	arduinos/arduino_uno(rev3)-icsp(1)_breadboard.svg
+A	arduinos/arduino_uno(rev3)-icsp_breadboard.svg
+M	src/BreakComponent.java
+M	src/Case.java
+M	src/ConditionalExecution.java
+M	src/Constant.java
+M	src/DelayComponent.java
+M	src/ForLoop.java
+M	src/ICase.java
+M	src/IComponent.java
+M	src/IfComponent.java
+M	src/Loop.java
+M	src/Node.java
+M	src/Peripheral.java
+M	src/StatementComponent.java
+M	src/UI/Flowduino.java
+M	src/Variable.java
+M	src/WhileLoop.java
 
-    Navne skift
+commit bf80393841ef1d5f6601853c2f2c80052abab1b6
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Sat Mar 26 12:14:41 2016 +0100
 
-M	PM2000/test/standardTests/ActivityTest.java
-M	PM2000/test/standardTests/ProjectTest.java
-M	PM2000/test/standardTests/SimpleCalendarTest.java
-M	PM2000/test/standardTests/UserTest.java
+    Added boxtypes for infoboxes
 
-commit 8d6c7fbb80bb2d57733337b1f7dea7d6b7bfee06
-Author: Frederik <Frederik.franklin.eriksen@gmail.com>
-Date:   Fri May 6 18:01:05 2016 +0200
+M	src/UI/AlertBox.java
 
-    Sidste jUnit tests
+commit c65aedaabbce9d83af1aa37b62a24f5f811df8f0
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Sat Mar 26 12:10:40 2016 +0100
 
-M	PM2000/test/standardTests/SimpleCalendarTest.java
-M	PM2000/test/standardTests/UserTest.java
+    Now it's static as well.
 
-commit d12fb2476a43609cb02f3d964e2225e36e05525a
-Merge: ed9067f 0eb2bc8
-Author: Frederik <Frederik.franklin.eriksen@gmail.com>
-Date:   Fri May 6 17:46:43 2016 +0200
+M	src/UI/AlertBox.java
 
-    Merge remote-tracking branch 'origin/master'
+commit bbe8f402533e9568532505c837fdbdd2a3ac3e89
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Sat Mar 26 12:07:14 2016 +0100
 
-commit ed9067f44158cde8cf63551034e78d769f87a6ce
-Author: Frederik <Frederik.franklin.eriksen@gmail.com>
-Date:   Fri May 6 17:46:18 2016 +0200
+    Another run icon as well as infobox
 
-    Sidste jUnit tests
+M	images/run.png
+M	src/UI/AlertBox.java
 
-M	PM2000/test/standardTests/ActivityTest.java
-M	PM2000/test/standardTests/SimpleCalendarTest.java
-M	PM2000/test/standardTests/UserTest.java
+commit 12bd99bc17a55fc24cf57da47d7819eac58f38b0
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Sat Mar 26 11:08:16 2016 +0100
 
-commit 0eb2bc8e2cb631b4f864705f75a018d69ee84b76
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 17:15:58 2016 +0200
+    Extra icon for new document
 
-    Project Summeray Done
+A	images/Statement.png
+A	images/new.png
+D	images/statement.png
 
-M	PM2000/src/UI/ActivitySummary.java
-M	PM2000/src/UI/ManageActivities.java
-M	PM2000/src/UI/ProjectSummary.java
-
-commit 9e93c192408d43701c5046ce60d07a8d470172c9
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 17:13:16 2016 +0200
-
-    Little  more fix in ActivitySummary
-
-M	PM2000/src/UI/ActivitySummary.java
-
-commit 57be7ef7e7ba1ab551ffbb5586076ba266478c92
-Merge: bf40e4f 294582d
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 16:35:37 2016 +0200
-
-    Merge remote-tracking branch 'origin/master'
-    
-    # Conflicts:
-    #	PM2000/src/UI/UserPanel.java
-
-commit bf40e4f99e9cad154ff2bf28edb56ee00d8ae1ac
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 16:35:15 2016 +0200
-
-    Little fix in ActivitySummary
-
-M	PM2000/src/UI/ActivitySummary.java
-M	PM2000/src/UI/UserPanel.java
-
-commit 294582d3a1586fb9fc1fff5637dd1ff282c3aedd
-Author: Frederik <Frederik.franklin.eriksen@gmail.com>
-Date:   Fri May 6 16:32:41 2016 +0200
-
-    Project.toString
-
-M	PM2000/src/UI/UserPanel.java
-M	PM2000/src/app/Project.java
-M	PM2000/test/standardTests/ProjectTest.java
-
-commit ebc0085c1f15381feb2aad36f093b62568191edd
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 16:14:10 2016 +0200
-
-    Added Project Summary and Activity Summary
-
-M	PM2000/src/UI/ActivitySummary.java
-
-commit d1aac9fbb6329751237d8792b9d952450968bb38
-Merge: d1bac4d 06e3d0b
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 16:13:27 2016 +0200
+commit cfcf5f0549615d9ebf3e10abd744bec3aa049d0a
+Merge: 8a33c4d 8dd767a
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Sat Mar 26 10:15:17 2016 +0100
 
     Merge remote-tracking branch 'origin/master'
     
     # Conflicts:
-    #	PM2000/src/UI/UserPanel.java
+    #	src/UI/style.css
 
-commit d1bac4d80ad25121aed751f0d8d500830827d88f
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 16:13:03 2016 +0200
+commit 8a33c4d16b777b9e55cd00db2498f047e1540799
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Sat Mar 26 10:14:40 2016 +0100
 
-    Added Project Summary and Activity Summary
+    Different icons and alert box rework
 
-A	PM2000/src/UI/ActivitySummary.java
-A	PM2000/src/UI/InfoSummary.java
-M	PM2000/src/UI/ProjectSummary.java
-M	PM2000/src/UI/UserPanel.java
+M	images/open.png
+M	images/run.png
+M	images/save.png
+A	images/saveAs.png
+M	src/Document.java
+A	src/UI/AlertBox.java
+A	src/UI/AlertResponse.java
+M	src/UI/Flowduino.java
+M	src/UI/style.css
 
-commit 06e3d0b97e7c3fb03c691e5b6ce7a895b96250b8
+commit 8dd767a97cafef8c962687dbea541ed439ddb9cc
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 16:09:24 2016 +0200
+Date:   Sat Mar 26 10:07:32 2016 +0100
 
-    Work Calender is done
+    Added images to previous commit
 
-M	PM2000/src/UI/RegisterTimePanel.java
-M	PM2000/src/UI/WorkCalender.java
-M	PM2000/src/app/Day.java
-M	PM2000/src/app/SimpleCalendar.java
+A	images/Break.png
+A	images/Delay.png
+A	images/Endif.png
+A	images/Endloop.png
+A	images/If.png
+A	images/Loop.png
+A	images/statement.png
 
-commit b62e51d7fe73096ade520a9ceda1917761a81560
+commit 8da6eb7675c4a206e7a8214ff64628c38d4a5210
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 15:34:31 2016 +0200
+Date:   Sat Mar 26 10:06:48 2016 +0100
 
-    Fixed minor bug
+    Added images to all control components
 
-M	PM2000/src/UI/RegisterTimePanel.java
-M	PM2000/src/UI/WorkCalender.java
+M	src/UI/Flowduino.java
+M	src/UI/style.css
 
-commit 6ac8933bde3b312af80e6ad811c7d56d94677e4a
+commit ce0589e76b38b70f7c6b851c21618539ecbcc4ed
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 15:27:30 2016 +0200
+Date:   Sat Mar 26 00:42:02 2016 +0100
 
-    Added RegisterTime
+    Lines in program view added, and save/load of files
 
-M	PM2000/src/UI/ManageActivities.java
-A	PM2000/src/UI/RegisterTimePanel.java
-M	PM2000/src/UI/UserPanel.java
-M	PM2000/src/UI/UserSchedule.java
-M	PM2000/src/UI/WorkCalender.java
-M	PM2000/src/app/Day.java
-M	PM2000/src/app/SimpleCalendar.java
-M	PM2000/src/app/User.java
+M	src/Document.java
+M	src/UI/Flowduino.java
 
-commit d31601a6b98d66289ac1e807f2e6ce8d73049e37
+commit c7d2c9483820d46e2a4d7c643c9daedda8c93e2a
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 13:18:57 2016 +0200
+Date:   Sat Mar 26 00:36:08 2016 +0100
 
-    activity double id fiksed
+    Lines in program view added, and save/load of files
 
-M	PM2000/src/app/Activity.java
+M	src/Document.java
+M	src/ICase.java
+M	src/IComponent.java
+M	src/IValues.java
+M	src/Node.java
+M	src/Peripheral.java
+M	src/PeripheralFunction.java
+M	src/Settings.java
+M	src/UI/Flowduino.java
+M	src/Variables.java
 
-commit ab58aef241f801a598e3c2958695016b2eb8033b
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 13:12:35 2016 +0200
+commit 79493cb150abb9746756848e337ca5b08d22901e
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 23:12:24 2016 +0100
 
-    UserSchedule added
+    More options for dialog before quitting
 
-M	PM2000/src/UI/UserPanel.java
-M	PM2000/src/UI/UserSchedule.java
-M	PM2000/src/app/User.java
+M	src/UI/Flowduino.java
+M	src/UI/style.css
 
-commit 98451d50015b201e26465e024e3e3a5a05a1070b
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 12:33:50 2016 +0200
+commit 9796efaaeef1e9d6a58e1cd7f72394517d6d2671
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 23:07:08 2016 +0100
 
-    More minor bug fiks
+    Check for empty head before prompting for close
 
-M	PM2000/src/UI/ManageProjects.java
+M	src/UI/Flowduino.java
 
-commit 8b8ca42c055434d6aa72615da0006fb27cad5d2f
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 12:26:36 2016 +0200
+commit 477ed819717fcfc58e79a9a4218da4140011ca7a
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 23:00:20 2016 +0100
 
-    Minor bug fiks
+    Further styling and close dialog
 
-M	PM2000/src/UI/ManageActivities.java
-M	PM2000/src/UI/ManageProjects.java
+M	src/UI/Flowduino.java
+M	src/UI/style.css
 
-commit 13be0cbdf8afb61a0e576fd09cbec4a4c40fb672
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 12:10:47 2016 +0200
-
-    ManageActivity fixed
-
-M	PM2000/src/UI/CreateActivity.java
-M	PM2000/src/UI/ManageActivities.java
-M	PM2000/src/UI/ManageProjects.java
-M	PM2000/src/app/Activity.java
-
-commit 46e1b1a223073ab6e80ae9e9aee22b9c01044f7b
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 11:58:20 2016 +0200
-
-    Added userpanel for users and Projetleaders
-
-M	PM2000/src/UI/UserPanel.java
-
-commit 517ec60826ec983ed6a75b15c57e3491c6edb4f0
-Merge: b108859 5cc66bc
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 11:56:05 2016 +0200
+commit 4fbc4236f475adb92d1b5eee30eaba15cccc876e
+Merge: 730720e 612b67d
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 22:34:43 2016 +0100
 
     Merge remote-tracking branch 'origin/master'
 
-commit b10885937047d80eb62f5734c19e0e17c0433c62
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Fri May 6 11:55:42 2016 +0200
+commit 730720e1ec62bb9d1d1823800bbb360ee85829df
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 22:34:33 2016 +0100
 
-    Added userpanel for users and Projetleaders
+    Added support for context menus
 
-M	PM2000/src/UI/LoginScreen.java
-A	PM2000/src/UI/ProjectSummary.java
-A	PM2000/src/UI/RegisterAssistance.java
-A	PM2000/src/UI/UserPanel.java
-A	PM2000/src/UI/UserSchedule.java
-A	PM2000/src/UI/WorkCalender.java
+M	images/background.png
+A	images/run.png
+M	src/UI/Flowduino.java
+M	src/UI/style.css
 
-commit 5cc66bc10991a6718982da7a3d0f51da5950ade9
+commit 612b67d38e05873670c1ac253ad9c2a9d1f2e2d2
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 11:50:44 2016 +0200
+Date:   Fri Mar 25 22:34:23 2016 +0100
 
-    ManageActivity added
+    if-cases fixed
 
-A	PM2000/src/UI/ManageActivities.java
-M	PM2000/src/UI/ManageProjects.java
-M	PM2000/src/app/User.java
+A	src/UI/BranchData.java
+M	src/UI/Flowduino.java
 
-commit 66ff739f3a84ae331f0c034cdd33f37a54959521
+commit e214d532a34dbd548f5d761754a7ec4fd8d69119
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 11:09:13 2016 +0200
+Date:   Fri Mar 25 21:47:41 2016 +0100
 
-    CreateActivity added
+    target style clasess
 
-A	PM2000/src/UI/CreateActivity.java
-M	PM2000/src/UI/DeleteUser.java
+M	src/UI/Flowduino.java
 
-commit 223f90b69b541973eeeb3c8aa1f22b4383cd769a
+commit 33d418c18040b2c2accb3f97edec90a8e2dd0c70
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 21:36:51 2016 +0100
+
+    Borders could now be fixed and with working scrollbars at that
+
+M	src/UI/style.css
+
+commit bcc1f05424753ba0429d1bd350419b05bc22e8ac
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 10:49:29 2016 +0200
+Date:   Fri Mar 25 21:34:40 2016 +0100
 
-    Fiksed UserID nameing
+    If-cases added
 
-M	PM2000/src/app/PM2000.java
+M	src/UI/Flowduino.java
+M	src/UI/style.css
 
-commit 0590bfce38c52078b9c5887ab55c316c05dd423c
+commit e2a57ed65113621ef48a4a6fd893372ff0c64f56
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 21:25:46 2016 +0100
+
+    I can't figure out how to remove the glow :(
+
+M	src/UI/style.css
+
+commit d11bf377770146563e7c744088cea8443f4113f7
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri May 6 10:44:36 2016 +0200
+Date:   Fri Mar 25 21:22:50 2016 +0100
 
-    Done with Manage projects
+    ProgramView Updated agian,  agian....
 
-M	PM2000/src/UI/DeleteUser.java
-M	PM2000/src/UI/ManageProjects.java
-M	PM2000/src/UI/ToggleSuperUsers.java
-M	PM2000/src/app/PM2000.java
-A	PM2000/src/app/PM2000State.java
+M	src/UI/Flowduino.java
 
-commit 11c0de63e5e40303fae5811a949511f37f8a1c8a
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Tue May 3 16:46:50 2016 +0200
+commit b960394392f7d1cd12fb343de04b14bdbce05a3c
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 21:05:55 2016 +0100
 
-    Added user project status to project manage
+    More scrollbars
 
-M	PM2000/src/UI/ManageProjects.java
-M	PM2000/src/UI/ToggleSuperUsers.java
+M	src/UI/Flowduino.java
+M	src/UI/style.css
 
-commit 0a1a89444e294c8b516ebf8ec6c924341bda4d3e
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Tue May 3 16:05:33 2016 +0200
-
-    More functionality to Manage Projects
-
-M	PM2000/src/UI/ManageProjects.java
-
-commit be6d681ebc08f3856ed811a26cad3ae9e557158d
-Merge: 5881805 4b90c74
+commit 192fc1b1e3c441b6d0e7c462796fcfeb29f570bd
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Tue May 3 15:59:23 2016 +0200
+Date:   Fri Mar 25 20:47:08 2016 +0100
+
+    ProgramView Updated agian
+
+M	src/UI/Flowduino.java
+
+commit 778465b34f5c10faaca947211a3d8954af34685d
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 20:43:05 2016 +0100
+
+    ProgramView Updated
+
+M	src/UI/Flowduino.java
+
+commit dd314fe0b2faa38cab3d6b302a7ebe23b4d3059a
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 20:39:08 2016 +0100
+
+    More scrollbars and background image in program view
+
+A	images/background.png
+A	images/open.png
+M	src/UI/style.css
+
+commit e8265b54b8844572962601f0aa55e23360124fa0
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 20:36:17 2016 +0100
+
+    Loop can be dragged in
+
+M	src/IfComponent.java
+M	src/UI/Flowduino.java
+
+commit 30484a49d17e7d61630a67dc228c94f62efe0dcb
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 20:09:23 2016 +0100
+
+    Added openbutton and margins in menubar as well as begun working on scrollbars
+
+M	src/UI/Flowduino.java
+M	src/UI/IconMenu.java
+M	src/UI/style.css
+
+commit ea8ee899f8933866df877cdbc513a40d2288573b
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 20:01:51 2016 +0100
+
+    Program view add in scrollPane
+
+M	src/UI/Flowduino.java
+M	src/UI/IconMenu.java
+
+commit e086698431c874fe7753556f81ec97903fae85f3
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 19:17:07 2016 +0100
+
+    Delay, Break, Statement can now be dragged in
+
+M	src/BreakComponent.java
+M	src/DelayComponent.java
+M	src/Document.java
+M	src/Node.java
+M	src/StatementComponent.java
+M	src/UI/Flowduino.java
+M	src/UI/IconMenu.java
+M	test/TestNode.java
+M	test/TestStatementComponent.java
+
+commit ec0d8d7545ccc8889e8f5d50fc73cf440eb90f81
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 18:21:42 2016 +0100
+
+    Added temporary image for save button
+
+A	images/save.png
+
+commit 82caf4da17ae861eefc5d42ddd02e5237da8e091
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 18:16:50 2016 +0100
+
+    Added menubar
+
+M	src/UI/Flowduino.java
+A	src/UI/IconMenu.java
+M	src/UI/style.css
+
+commit 2c5ed61d6e049b65a6fc06a5fedc82291950f4d5
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 17:03:23 2016 +0100
+
+    Began styling for UI
+
+M	src/UI/Flowduino.java
+A	src/UI/style.css
+
+commit b4ab8b31ddb38ca8fd8980ab305518f326cb4fa2
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 16:52:18 2016 +0100
+
+    Buttons added
+
+M	src/Document.java
+M	src/UI/Flowduino.java
+
+commit e932ac027a7997973ea0939f2359e51ac66a0c81
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 16:07:51 2016 +0100
+
+    StatementComponet updated
+
+M	Blocks/Serial.fd
+M	src/StatementComponent.java
+M	src/UI/Flowduino.java
+
+commit 7d0b78722d74a02cbaddf29bad73df6f0eda3e2a
+Merge: c64c4db 6853cc5
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 15:41:31 2016 +0100
+
+    Merge branch 'master' of https://github.com/JBcoding/Flowduino
+
+commit c64c4db67b43b3eb0b14731f7e98a195773f3f7e
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 15:41:16 2016 +0100
+
+    UI v0.1
+
+M	.DS_Store
+M	src/.DS_Store
+M	src/Document.java
+D	src/FileReader.java
+D	src/Flowduino.java
+M	src/Peripheral.java
+M	src/PeripheralFunction.java
+A	src/UI/.DS_Store
+A	src/UI/Flowduino.java
+M	test/.DS_Store
+M	test/TestStatementComponent.java
+
+commit 6853cc5de8a7a90e663223b40166336d54e93e33
+Merge: a8f4665 e676c5c
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 14:20:48 2016 +0100
 
     Merge remote-tracking branch 'origin/master'
 
-commit 5881805afa133c3b8719159723d50f5c77000f94
+commit a8f466524cdd3565e8b8d62d907a28efc788cf3b
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 14:20:38 2016 +0100
+
+    Added Serial as block as well as break-component
+
+A	Blocks/Serial.fd
+A	src/BreakComponent.java
+
+commit e676c5c94b06d7c5dfac6fbf9b4ea87ac4f3b6aa
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Fri Mar 25 13:29:23 2016 +0100
+
+    relocated Peripheral.java
+
+M	.DS_Store
+D	Peripheral.java
+M	src/.DS_Store
+A	src/Document.java
+A	src/Peripheral.java
+M	src/Variables.java
+
+commit 60920c51756c1f94daeb4b1def46d7a92c4a7ca6
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Fri Mar 25 13:18:40 2016 +0100
+
+    Added unit tests StatementComponent error handling aswell as added final class for handling variables.
+
+M	src/Flowduino.java
+A	src/MalformedExpressionException.java
+M	src/StatementComponent.java
+A	src/VariableNotFoundException.java
+A	src/Variables.java
+M	test/TestStatementComponent.java
+
+commit 75306d214012f911af6c54b1ebf32ffe0b49763c
 Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Tue May 3 15:59:07 2016 +0200
+Date:   Thu Mar 24 00:41:34 2016 +0100
 
-    Save and loads automatically
+    Added reader for blocks
 
-M	PM2000/src/UI/LoginScreen.java
-M	PM2000/src/app/Activity.java
-M	PM2000/src/app/Day.java
-M	PM2000/src/app/NegativeTimeException.java
-M	PM2000/src/app/PM2000.java
-M	PM2000/src/app/Project.java
-M	PM2000/src/app/Quarter.java
-M	PM2000/src/app/SimpleCalendar.java
-M	PM2000/src/app/User.java
+A	Blocks/LED.fd
+A	Blocks/Servo.fd
+A	Peripheral.java
+A	src/FileReader.java
+M	src/Flowduino.java
+A	src/GenericPeripheral.java
+A	src/PeripheralFunction.java
 
-commit 4b90c744cd8c2501e866ad15c7c741342ed62fc7
-Author: magnus0512 <magnusdal10@hotmail.com>
-Date:   Tue May 3 13:50:21 2016 +0200
+commit c3b9a35bf22996aeec1dc4195ec2edd4927be2fc
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Wed Mar 23 20:45:33 2016 +0100
 
-    Made a delete function for Project manage
+    Sample code added
 
-A	PM2000/.idea/libraries/hamcrest_core_1_3.xml
-A	PM2000/.idea/libraries/junit_4_12.xml
-A	PM2000/.idea/vcs.xml
-M	PM2000/src/UI/ManageProjects.java
+M	.DS_Store
+D	Flowduino.java
+M	src/.DS_Store
+A	src/Flowduino.java
+M	src/ForLoop.java
+M	src/StatementComponent.java
+M	test/TestForLoop.java
+M	test/TestStatementComponent.java
 
-commit 33dee9fb2df8a1c4d16fe0e436b0dac967b11617
+commit b70e36e70d0ce115d2e38ae7aa5392a56df0291e
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Wed Mar 23 18:59:18 2016 +0100
+
+    All JUint tasts passed
+
+M	.DS_Store
+A	src/.DS_Store
+M	src/Case.java
+M	src/ConditionalExecution.java
+M	src/Constant.java
+M	src/DelayComponent.java
+M	src/ForLoop.java
+M	src/IfComponent.java
+M	src/Loop.java
+M	src/Node.java
+M	src/Settings.java
+M	src/StatementComponent.java
+M	src/Variable.java
+M	src/WhileLoop.java
+A	test/.DS_Store
+M	test/TestCase.java
+M	test/TestDelayComponent.java
+M	test/TestIfComponent.java
+M	test/TestStatementComponent.java
+M	test/TestVariable.java
+M	test/TestWhileLoop.java
+
+commit 6c3faae616e519e6466bc8d485a8f4ad8b62502a
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Wed Mar 23 16:56:29 2016 +0100
+
+    JUint tests done (for now)
+
+A	src/Case.java
+A	src/ConditionalExecution.java
+M	src/ForLoop.java
+A	src/ICase.java
+M	src/IValues.java
+A	src/IfComponent.java
+M	src/Loop.java
+A	src/WhileLoop.java
+A	test/TestCase.java
+A	test/TestForLoop.java
+A	test/TestIfComponent.java
+A	test/TestWhileLoop.java
+
+commit 1dc06523ab85de38dece1ebec807240032680c72
+Merge: 44cb25e 032bd30
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Wed Mar 23 13:06:56 2016 +0100
+
+    Merge branch 'master' of https://github.com/JBcoding/Flowduino
+
+commit 44cb25e30206310e373faade755cb797ab126fe7
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Wed Mar 23 13:06:20 2016 +0100
+
+    shit
+
+A	.DS_Store
+A	AutoJUint.py
+A	Comppile and run
+M	Flowduino.java
+
+commit 032bd307cb9d8e6f168055f271d24ab9c9c7ac11
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Wed Mar 23 13:03:45 2016 +0100
+
+    More JUnit tests and components
+
+A	src/Constant.java
+A	src/DelayComponent.java
+A	src/ForLoop.java
+A	src/IValues.java
+A	src/Loop.java
+M	src/Node.java
+A	src/Settings.java
+A	src/Variable.java
+A	test/TestConstant.java
+A	test/TestDelayComponent.java
+M	test/TestNode.java
+M	test/TestStatementComponent.java
+A	test/TestVariable.java
+
+commit f0a5491ec685ef4a6a2481a4735fabdc9746ffa2
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Wed Mar 23 00:53:58 2016 +0100
+
+    Started adding JUnit tests for Nodes and StatementComponents
+
+M	Flowduino.java
+A	src/IComponent.java
+D	src/JUT.java
+A	src/Node.java
+A	src/StatementComponent.java
+D	test/TestJUT.java
+A	test/TestNode.java
+A	test/TestStatementComponent.java
+
+commit 2325ad31217ef70fd07bf994d1d6bf589fd3422a
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Tue Mar 22 23:14:20 2016 +0100
+
+    JUint setup .jar files added
+
+A	hamcrest-core-1.3.jar
+
+commit c917a464e26fb7ce81509cd963c8eb330b84d011
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Tue Mar 22 22:58:11 2016 +0100
+
+    JUint setup .jar file added
+
+A	junit-4.12.jar
+
+commit 7981074e935de5aa3b9e2a5f46bd8832a05ad820
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Tue Mar 22 22:46:20 2016 +0100
+
+    JUint setup
+
+A	src/JUT.java
+A	test/TestJUT.java
+
+commit 2f5f8a9ad90f02a69ae2429f7d5e62efb94065ac
+Author: Mads Bjoern <mads12bjoern@gmail.com>
+Date:   Tue Mar 22 22:20:24 2016 +0100
+
+    Project setup
+
+A	Flowduino.java
+
+commit 84b4e61b7bd434ca7a6aadf11c6028c3cc0dc268
 Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon May 2 16:33:45 2016 +0200
-
-    Added most of the admin UI
-
-A	PM2000/src/UI/AdminPanel.java
-A	PM2000/src/UI/CreateProject.java
-A	PM2000/src/UI/CreateUser.java
-A	PM2000/src/UI/DeleteUser.java
-M	PM2000/src/UI/LoginScreen.java
-A	PM2000/src/UI/ManageProjects.java
-A	PM2000/src/UI/ToggleSuperUsers.java
-M	PM2000/src/app/Project.java
-M	PM2000/src/app/User.java
-
-commit ade1e21081e1c426c9784e5e076e63b26d01abc6
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon May 2 13:24:58 2016 +0200
-
-    missing src files added
-
-A	PM2000/src/app/Activity.java
-A	PM2000/src/app/Day.java
-A	PM2000/src/app/NegativeTimeException.java
-A	PM2000/src/app/PM2000.java
-A	PM2000/src/app/Project.java
-A	PM2000/src/app/Quarter.java
-A	PM2000/src/app/SimpleCalendar.java
-A	PM2000/src/app/User.java
-
-commit 31a9002381b9f530eb08bb1b8852236b43b4bf31
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon May 2 13:23:37 2016 +0200
-
-    Loginscreen added
-
-D	PM2000/src/Activity.java
-D	PM2000/src/Day.java
-D	PM2000/src/NegativeTimeException.java
-D	PM2000/src/PM2000.java
-D	PM2000/src/Project.java
-D	PM2000/src/Quarter.java
-D	PM2000/src/SimpleCalendar.java
-A	PM2000/src/UI/LoginScreen.java
-D	PM2000/src/User.java
-M	PM2000/test/standardTests/ProjectTest.java
-M	PM2000/test/standardTests/UserTest.java
-
-commit e8cedf92e2499408e19f72050f4efdf1a2b6459a
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Tue Apr 26 21:00:33 2016 +0200
-
-    PM2000 is now fully implemented
-
-M	PM2000/src/Activity.java
-M	PM2000/src/PM2000.java
-M	PM2000/src/Project.java
-M	PM2000/src/User.java
-A	PM2000/test/BeforeAndAfterTest.java
-M	PM2000/test/standardTests/ActivityTest.java
-M	PM2000/test/standardTests/DayTest.java
-M	PM2000/test/standardTests/PM2000Test.java
-M	PM2000/test/standardTests/ProjectTest.java
-M	PM2000/test/standardTests/QuarterTest.java
-M	PM2000/test/standardTests/SimpleCalendarTest.java
-M	PM2000/test/standardTests/UserTest.java
-M	PM2000/test/testSetsTests/AddDateToActivityTest.java
-M	PM2000/test/testSetsTests/AddUserToActivityTest.java
-M	PM2000/test/testSetsTests/CreateActivityTest.java
-M	PM2000/test/testSetsTests/CreateProjectTest.java
-M	PM2000/test/testSetsTests/CreateUserTest.java
-M	PM2000/test/testSetsTests/NormalUserToSuperUserTest.java
-M	PM2000/test/testSetsTests/PlanningTest.java
-M	PM2000/test/testSetsTests/SuperUserToNormalUserTest.java
-M	PM2000/test/testSetsTests/TimeRegistrationTest.java
-
-commit d18b144d2cd15c3d836db68fff4a6848578f4f05
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 25 16:52:17 2016 +0200
-
-    PM2000 is now half implemented, so you could say PM1000 HAHAHHAHAHAHA
-
-M	PM2000/src/Activity.java
-M	PM2000/src/Day.java
-M	PM2000/src/NegativeTimeException.java
-M	PM2000/src/Quarter.java
-M	PM2000/src/SimpleCalendar.java
-M	PM2000/src/User.java
-M	PM2000/test/standardTests/ActivityTest.java
-M	PM2000/test/standardTests/DayTest.java
-M	PM2000/test/standardTests/UserTest.java
-M	PM2000/test/testSetsTests/AddUserToActivityTest.java
-
-commit 9519dadeba947afdb1dd0f864307ad3c8cd58853
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 18 16:31:28 2016 +0200
-
-    Added the last of JUint tests
-
-A	PM2000/test/testSetsTests/AddDateToActivityTest.java
-M	PM2000/test/testSetsTests/AddUserToActivityTest.java
-A	PM2000/test/testSetsTests/PlanningTest.java
-A	PM2000/test/testSetsTests/TimeRegistrationTest.java
-
-commit c144c805b27d42d34f312b5b87d3c4ffadd184b1
-Author: Frederik <Frederik.franklin.eriksen@gmail.com>
-Date:   Mon Apr 18 16:29:00 2016 +0200
-
-     Opret Aktivitet tests lavet
-
-A	PM2000/test/testSetsTests/CreateActivityTest.java
-
-commit f4512a1a60deb4e6388d024165a162a05ddec603
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 18 15:03:58 2016 +0200
-
-    quick fix
-
-M	PM2000/src/Activity.java
-
-commit 03748d54293b9f1d89232335797dcb21f343930a
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 18 15:02:06 2016 +0200
-
-    Old JUint tests added back in
-
-M	PM2000/src/Activity.java
-A	PM2000/test/standardTests/ActivityTest.java
-A	PM2000/test/standardTests/DayTest.java
-A	PM2000/test/standardTests/PM2000Test.java
-A	PM2000/test/standardTests/ProjectTest.java
-A	PM2000/test/standardTests/QuarterTest.java
-A	PM2000/test/standardTests/SimpleCalendarTest.java
-A	PM2000/test/standardTests/UserTest.java
-A	PM2000/test/testSetsTests/AddUserToActivityTest.java
-A	PM2000/test/testSetsTests/NormalUserToSuperUserTest.java
-M	PM2000/test/testSetsTests/SuperUserToNormalUserTest.java
-
-commit 67f653036a0424de734ac139a9aeb890f75bb4dd
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 18 14:40:27 2016 +0200
-
-    Even more JUint cases added
-
-M	PM2000/src/Activity.java
-M	PM2000/src/Project.java
-M	PM2000/src/User.java
-D	PM2000/test/ActivityTest.java
-D	PM2000/test/DayTest.java
-D	PM2000/test/PM2000Test.java
-D	PM2000/test/ProjectTest.java
-D	PM2000/test/QuarterTest.java
-D	PM2000/test/SimpleCalendarTest.java
-D	PM2000/test/UserTest.java
-A	PM2000/test/testSetsTests/CreateProjectTest.java
-A	PM2000/test/testSetsTests/CreateUserTest.java
-A	PM2000/test/testSetsTests/SuperUserToNormalUserTest.java
-
-commit 78afb98827be2d3f52ca46a6ac1a70be128db1b6
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 11 16:35:03 2016 +0200
-
-    Added JUint tests for all classes except PM2000
-
-M	PM2000/src/Project.java
-M	PM2000/src/User.java
-M	PM2000/test/ActivityTest.java
-M	PM2000/test/ProjectTest.java
-M	PM2000/test/UserTest.java
-
-commit adcdb7e6bddc060a49d518c2f155f4e8c5423196
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 11 15:10:32 2016 +0200
-
-    Added JUint tests for Quater, Day, Activity and SimpleCalendar
-
-M	PM2000/src/Activity.java
-M	PM2000/src/Day.java
-A	PM2000/src/NegativeTimeException.java
-M	PM2000/src/Project.java
-M	PM2000/src/Quarter.java
-M	PM2000/src/SimpleCalendar.java
-M	PM2000/src/User.java
-M	PM2000/test/ActivityTest.java
-M	PM2000/test/DayTest.java
-M	PM2000/test/PM2000Test.java
-M	PM2000/test/QuarterTest.java
-M	PM2000/test/SimpleCalendarTest.java
-
-commit 01ceb8b9226b842a1a01d96752972013d925badd
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 4 16:10:09 2016 +0200
-
-    init setup libs
-
-M	.idea/libraries/hamcrest_core_1_3.xml
-A	.idea/uiDesigner.xml
-
-commit 89a5056cda0a334d32c520d504b8867f7cf3bced
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 4 15:56:40 2016 +0200
-
-    init setup done
-
-A	.idea/libraries/junit_4_12.xml
-A	PM2000/src/Activity.java
-A	PM2000/src/Day.java
-A	PM2000/src/Project.java
-A	PM2000/src/Quarter.java
-A	PM2000/src/SimpleCalendar.java
-A	PM2000/src/User.java
-A	PM2000/test/ActivityTest.java
-A	PM2000/test/DayTest.java
-A	PM2000/test/PM2000Test.java
-D	PM2000/test/PM2000_test.java
-A	PM2000/test/ProjectTest.java
-A	PM2000/test/QuarterTest.java
-A	PM2000/test/SimpleCalendarTest.java
-A	PM2000/test/UserTest.java
-
-commit 38b48c7fabc98f6e6e7116b4c28dc46b2bda198d
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 4 15:49:41 2016 +0200
-
-    init setup
-
-M	.idea/libraries/hamcrest_core_1_3.xml
-A	PM2000/src/PM2000.java
-A	PM2000/test/PM2000_test.java
-D	src/PM2000.java
-D	test/PM2000_test.java
-
-commit 8369f3b6e075f79a9c80e17e23b739dc1530cfd4
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 4 15:31:56 2016 +0200
-
-    init
-
-A	.idea/libraries/hamcrest_core_1_3.xml
-A	src/PM2000.java
-A	test/PM2000_test.java
-
-commit 35e802285f0355e0d633e7a750e5db54829a096d
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Mon Apr 4 15:16:50 2016 +0200
+Date:   Tue Mar 22 22:03:11 2016 +0100
 
     Initial commit
 
 A	.gitignore
 A	LICENSE
+A	README.md

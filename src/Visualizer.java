@@ -80,6 +80,8 @@ public class Visualizer {
 
         LabelBox lb = new LabelBox("VERY LONG TITLE TO ANNOY YOU", 0, 720);
 
+        List<Beam> beams = new ArrayList<>();
+
         for (int i = -99; i < numberOfImages; i ++) {
             float deltaTime = 1 / 15.f;
             if (i % 100 == 0) {
@@ -115,6 +117,7 @@ public class Visualizer {
                     } else if (c.getChangeType() == 'D') {
                         currentNode.findChildWithName(nameParts[nameParts.length - 1]).startFading();
                     }
+                    beams.add(new Beam(new Vec2f(50, 50), currentNode.findChildWithName(nameParts[nameParts.length - 1])));
                 }
             }
 
@@ -133,7 +136,7 @@ public class Visualizer {
             Vec2f rectCentrum = new Vec2f(w / 2, h / 2);
             float newScale = 1;
             try {
-                newScale = (float)Math.min((double)w / (rect[2] - rect[0]) * 1180/1280.f, (double)h / (rect[3] - rect[1]) * 620/720.f);
+                newScale = (float)Math.min((double)w / (rect[2] - rect[0]) * 1080/1280.f, (double)h / (rect[3] - rect[1]) * 620/720.f);
             } catch (ArithmeticException e) {}
             newScale = (float)Math.min(1.5, newScale);
 
@@ -150,7 +153,7 @@ public class Visualizer {
                 }
             }
             // offset
-            Vec2f newOffset = new Vec2f(-(rect[2] + rect[0]) / 2 * currentScale + w/2, -(rect[3] + rect[1]) / 2 * currentScale + h / 2);
+            Vec2f newOffset = new Vec2f(-(rect[2] + rect[0]) / 2 * currentScale + w/2 + 50, -(rect[3] + rect[1]) / 2 * currentScale + h / 2);
             float distance = currentOffset.distance(newOffset);
             if (distance <= 5 || (currentOffset.x == 0 && currentOffset.y == 0)) {
                 currentOffset = newOffset;
@@ -182,7 +185,7 @@ public class Visualizer {
                             if (newRect[3] < point.y) {newRect[3] = (int) point.y;}
                         }
                     }
-                    float angleScale = (float)Math.min((double)w / (newRect[2] - newRect[0]) * 1180/1280.f, (double)h / (newRect[3] - newRect[1]) * 620/720.f);
+                    float angleScale = (float)Math.min((double)w / (newRect[2] - newRect[0]) * 1080/1280.f, (double)h / (newRect[3] - newRect[1]) * 620/720.f);
                     if (angleScale > bestAngleScale) {
                         bestAngleScale = angleScale;
                         bestAngle = angle;
@@ -236,19 +239,22 @@ public class Visualizer {
             for (Spring s : springs) {
                 s.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
             }
+            for (Beam b : beams) {
+                b.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
+            }
             masterNode.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
             if (i > 0) {
                 if (lastAuthors.size() == 6) {
                     BufferedImage img = lastAuthors.get(5);
-                    g2.drawImage(img, 20, 20 + 100 * 4, 100, 100, null);
+                    g2.drawImage(img, 20, 20 + 100 * 4, 80, 80, null);
                 }
                 for (int j = 0; j < Math.min(lastAuthors.size(), 5); j ++) {
                     BufferedImage img = lastAuthors.get(j);
                     if (img != null) {
                         if (i % 100 < 30) {
-                            g2.drawImage(img, 20, (int)Math.max(20, (20 + 100 * j - 3.33 * (30 - (i % 100)))), 100, 100, null);
+                            g2.drawImage(img, 20, (int)Math.max(20, (20 + 100 * j - 3.33 * (30 - (i % 100)))), 80, 80, null);
                         } else {
-                            g2.drawImage(img, 20, 20 + 100 * j, 100, 100, null);
+                            g2.drawImage(img, 20, 20 + 100 * j, 80, 80, null);
                         }
                     }
                 }
@@ -265,6 +271,15 @@ public class Visualizer {
             masterNode.doNodeRepulsion(masterNode.getPhysicsNodes());
             masterNode.collisionDetection(masterNode.getPhysicsNodes());
             masterNode.update(deltaTime);
+            for (Beam b : beams) {
+                b.update(deltaTime);
+            }
+            for (int j = 0; j < beams.size(); j ++) {
+                if (beams.get(j).cleanUpCheck()) {
+                    beams.remove(j);
+                    j --;
+                }
+            }
         }
     }
 
