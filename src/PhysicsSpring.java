@@ -1,5 +1,3 @@
-import com.sun.javafx.geom.Vec2f;
-
 /**
  * Created by madsbjoern on 30/05/16.
  */
@@ -17,19 +15,19 @@ public class PhysicsSpring {
     }
 
     public void update() {
-        Vec2f deltaPos = new Vec2f(nodes[0].getLocation().x - nodes[1].getLocation().x, nodes[0].getLocation().y - nodes[1].getLocation().y);
+        Vector2D deltaPos = new Vector2D(nodes[0].getLocation().x - nodes[1].getLocation().x, nodes[0].getLocation().y - nodes[1].getLocation().y);
         float distanceBetweenNodes = nodes[0].getLocation().distance(nodes[1].getLocation());
-        Vec2f direction = new Vec2f(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
+        Vector2D direction = new Vector2D(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
 
         // F = -k z
-        Vec2f z = new Vec2f(deltaPos.x - direction.x * length, deltaPos.y - direction.y * length);
-        Vec2f F = new Vec2f(- springConstant * z.x, -springConstant * z.y);
-        Vec2f negativeF = new Vec2f(-F.x, -F.y);
+        Vector2D z = new Vector2D(deltaPos.x - direction.x * length, deltaPos.y - direction.y * length);
+        Vector2D F = new Vector2D(- springConstant * z.x, -springConstant * z.y);
+        Vector2D negativeF = new Vector2D(-F.x, -F.y);
         nodes[0].ApplyForce(F);
         nodes[1].ApplyForce(negativeF);
     }
 
-    public Vec2f getLocation(int nodeID) {
+    public Vector2D getLocation(int nodeID) {
         return nodes[nodeID].getLocation();
     }
 }

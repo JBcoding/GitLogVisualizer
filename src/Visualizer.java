@@ -1,5 +1,3 @@
-import com.sun.javafx.geom.Vec2f;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -60,7 +58,7 @@ public class Visualizer {
         int h = 720;
 
         List<Spring> springs = new ArrayList<>();
-        masterNode = new Node(new Vec2f(w / 2, h / 2), 10, springs);
+        masterNode = new Node(new Vector2D(w / 2, h / 2), 10, springs);
         masterNode.folder = false;
 
         float currentScale = 1.5f;
@@ -68,7 +66,7 @@ public class Visualizer {
         float scaleGoal = 1.5f;
         float scaleMaxAcceleration = .125f;
 
-        Vec2f currentOffset = new Vec2f(0, 0);
+        Vector2D currentOffset = new Vector2D(0, 0);
 
         double currentAngle = 0.f;
         double angleGoal = 0.f;
@@ -101,7 +99,7 @@ public class Visualizer {
                         Node child = currentNode.findChildWithName(nameParts[j]);
                         if (child == null) {
                             int layer = calculateLayer(currentNode.getNumberOfChildrenWitoutFolders()) + 2;
-                            child = new Node(new Vec2f((float)Math.cos(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
+                            child = new Node(new Vector2D((float)Math.cos(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
                             child.name = nameParts[j];
                             child.folder = true;
                             currentNode.addChild(child);
@@ -110,14 +108,14 @@ public class Visualizer {
                     }
                     if (c.getChangeType() == 'A') {
                         int layer = calculateLayer(currentNode.getNumberOfChildrenWitoutFolders()) + 2;
-                        Node newChild = new Node(new Vec2f((float)Math.cos(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
+                        Node newChild = new Node(new Vector2D((float)Math.cos(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
                         newChild.name = nameParts[nameParts.length - 1];
                         newChild.folder = false;
                         currentNode.addChild(newChild);
                     } else if (c.getChangeType() == 'D') {
                         currentNode.findChildWithName(nameParts[nameParts.length - 1]).startFading();
                     }
-                    beams.add(new Beam(new Vec2f(50, 50), currentNode.findChildWithName(nameParts[nameParts.length - 1])));
+                    beams.add(new Beam(new Vector2D(50, 50), currentNode.findChildWithName(nameParts[nameParts.length - 1])));
                 }
             }
 
@@ -131,8 +129,8 @@ public class Visualizer {
 
             // calculate scale, offset and rotation
             // scale
-            int[] rect = masterNode.getBoundingBox(currentAngle, new Vec2f(w / 2, h / 2));
-            Vec2f rectCentrum = new Vec2f(w / 2, h / 2);
+            int[] rect = masterNode.getBoundingBox(currentAngle, new Vector2D(w / 2, h / 2));
+            Vector2D rectCentrum = new Vector2D(w / 2, h / 2);
             float newScale = 1;
             try {
                 newScale = (float)Math.min((double)w / (rect[2] - rect[0]) * 1080/1280.f, (double)h / (rect[3] - rect[1]) * 620/720.f);
@@ -152,28 +150,26 @@ public class Visualizer {
                 }
             }
             // offset
-            Vec2f newOffset = new Vec2f(-(rect[2] + rect[0]) / 2 * currentScale + w/2 + 50, -(rect[3] + rect[1]) / 2 * currentScale + h / 2);
+            Vector2D newOffset = new Vector2D(-(rect[2] + rect[0]) / 2 * currentScale + w/2 + 50, -(rect[3] + rect[1]) / 2 * currentScale + h / 2);
             float distance = currentOffset.distance(newOffset);
             if (distance <= 5 || (currentOffset.x == 0 && currentOffset.y == 0)) {
                 currentOffset = newOffset;
             } else {
                 float offsetSpeed = 5; // pixels per frame
-                Vec2f deltaPos = new Vec2f(newOffset.x - currentOffset.x, newOffset.y - currentOffset.y);
-                currentOffset.x += deltaPos.x / distance * offsetSpeed;
-                currentOffset.y += deltaPos.y / distance * offsetSpeed;
+                Vector2D deltaPos = new Vector2D(newOffset.x - currentOffset.x, newOffset.y - currentOffset.y);
+                currentOffset = currentOffset.translate(deltaPos.scale(1 / distance).scale(offsetSpeed));
             }
             // rotation
             if (i % 100 == 40 && i > 0) {
                 double bestAngle = currentAngle;
                 float bestAngleScale = 0;
-                List<Vec2f> nodePositions = masterNode.getListOfPositions();
+                List<Vector2D> nodePositions = masterNode.getListOfPositions();
                 for (double angle = currentAngle - Math.PI / 2; angle < currentAngle + Math.PI / 2; angle += Math.PI / 36) {
                     int[] newRect = new int[4];
                     for (int j = 0; j < nodePositions.size(); j++) {
-                        Vec2f point = new Vec2f(nodePositions.get(j).x, nodePositions.get(j).y);
-                        point.x = (int) (point.x * currentScale + currentOffset.x);
-                        point.y = (int) (point.y * currentScale + currentOffset.y);
-                        point = rotateVecter(point, angle, rectCentrum);
+                        Vector2D point = new Vector2D(nodePositions.get(j).x, nodePositions.get(j).y);
+                        point = point.scale(currentScale).translate(currentOffset);
+                        point = point.transform(rectCentrum, angle);
                         if (j == 0) {
                             newRect[0] = newRect[2] = (int) point.x;
                             newRect[1] = newRect[3] = (int) point.y;
@@ -293,19 +289,5 @@ public class Visualizer {
             numberInCurrentLayer += 6;
         }
         return layer;
-    }
-
-    public static Vec2f rotateVecter(Vec2f vec, double angle, Vec2f offset) {
-        vec.x -= offset.x;
-        vec.y -= offset.y;
-        double thisAngle = Math.atan2(vec.y, vec.x);
-        thisAngle += angle;
-        double vectorLength = vec.distance(0, 0);
-        Vec2f newVec = new Vec2f(0, 0);
-        newVec.x = (float) ((Math.cos(thisAngle) * vectorLength) + offset.x);
-        newVec.y = (float) ((Math.sin(thisAngle) * vectorLength) + offset.y);
-        vec.x += offset.x;
-        vec.y += offset.y;
-        return newVec;
     }
 }

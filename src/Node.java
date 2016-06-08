@@ -1,5 +1,3 @@
-import com.sun.javafx.geom.Vec2f;
-
 import java.awt.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +17,7 @@ public class Node {
     private float alpha;
     private List<Spring> allSprings;
 
-    public Node(Vec2f location, float mass, List<Spring> allSprings) {
+    public Node(Vector2D location, float mass, List<Spring> allSprings) {
         physics = new PhysicsNode(location, mass, 20, this);
         folder = false;
         name = "";
@@ -30,10 +28,11 @@ public class Node {
         this.allSprings = allSprings;
     }
 
-    public void draw(Graphics2D g, float scale, Vec2f offset, double angle, Vec2f rectCentrum) {
-        Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, rectCentrum);
-        int x = (int)(tempVec.x * scale + offset.x);
-        int y = (int)(tempVec.y * scale + offset.y);
+    public void draw(Graphics2D g, float scale, Vector2D offset, double angle, Vector2D rectCentrum) {
+        Vector2D tempVec = physics.getLocation().transform(rectCentrum, angle);
+        tempVec = tempVec.scale(scale).translate(offset);
+        int x = (int)tempVec.x;
+        int y = (int)tempVec.y;
         Color oldColor = g.getColor();
         g.setColor(getHashColor());
         g.fillOval((int) (x - physics.getRadius() * scale), (int) (y - physics.getRadius() * scale), (int)(physics.getRadius() * scale * 2), (int)(physics.getRadius() * scale * 2));
@@ -170,8 +169,8 @@ public class Node {
         }
     }
 
-    public int[] getBoundingBox(double angle, Vec2f lastCentrum) {
-        Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
+    public int[] getBoundingBox(double angle, Vector2D lastCentrum) {
+        Vector2D tempVec = physics.getLocation().transform(lastCentrum, angle);
         int x = (int)tempVec.x;
         int y = (int)tempVec.y;
         float radius = physics.getRadius();
@@ -180,8 +179,8 @@ public class Node {
         return rect;
     }
 
-    private void getBoundingBox(int[] rect, double angle, Vec2f lastCentrum) {
-        Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
+    private void getBoundingBox(int[] rect, double angle, Vector2D lastCentrum) {
+        Vector2D tempVec = physics.getLocation().transform(lastCentrum, angle);
         int x = (int)tempVec.x;
         int y = (int)tempVec.y;
         float radius = physics.getRadius();
@@ -198,8 +197,8 @@ public class Node {
         this.parent = parent;
     }
 
-    public List<Vec2f> getListOfPositions() {
-        List<Vec2f> positions = new ArrayList<>();
+    public List<Vector2D> getListOfPositions() {
+        List<Vector2D> positions = new ArrayList<>();
         positions.add(getPhysicsNode().getLocation());
         for (Node child : children) {
             positions.addAll(child.getListOfPositions());

@@ -1,5 +1,3 @@
-import com.sun.javafx.geom.Vec2f;
-
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -8,23 +6,23 @@ import java.util.List;
  * Created by madsbjoern on 30/05/16.
  */
 public class PhysicsNode {
-    private Vec2f location;
-    private Vec2f velocity;
-    private Vec2f forces;
+    private Vector2D location;
+    private Vector2D velocity;
+    private Vector2D forces;
     private float mass;
     private float radius;
     private Node node;
 
-    public PhysicsNode(Vec2f location, float mass, float radius, Node node) {
+    public PhysicsNode(Vector2D location, float mass, float radius, Node node) {
         this.location = location;
         this.mass = mass;
         this.radius = radius;
         this.node = node;
-        velocity = new Vec2f(0.0f, 0.0f);
-        forces = new Vec2f(0.0f, 0.0f);
+        velocity = new Vector2D(0.0f, 0.0f);
+        forces = new Vector2D(0.0f, 0.0f);
     }
 
-    public void ApplyForce(Vec2f force) {
+    public void ApplyForce(Vector2D force) {
         forces.x += force.x;
         forces.y += force.y;
     }
@@ -34,14 +32,14 @@ public class PhysicsNode {
             if (n == this) {
                 continue;
             }
-            Vec2f deltaPos = new Vec2f(n.getLocation().x - this.getLocation().x, n.getLocation().y - this.getLocation().y);
+            Vector2D deltaPos = new Vector2D(n.getLocation().x - this.getLocation().x, n.getLocation().y - this.getLocation().y);
             float distanceBetweenNodes = this.getLocation().distance(n.getLocation());
             distanceBetweenNodes = Math.max(20, distanceBetweenNodes);
-            Vec2f direction = new Vec2f(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
+            Vector2D direction = new Vector2D(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
 
             // F = k * m1 * m2 / d^2
             float k = 10000.f;
-            Vec2f F = new Vec2f(direction.x * k * mass * n.mass / (float)Math.pow(distanceBetweenNodes, 2), direction.y * k * mass * n.mass / (float)Math.pow(distanceBetweenNodes, 2));
+            Vector2D F = new Vector2D(direction.x * k * mass * n.mass / (float)Math.pow(distanceBetweenNodes, 2), direction.y * k * mass * n.mass / (float)Math.pow(distanceBetweenNodes, 2));
             n.ApplyForce(F);
         }
     }
@@ -52,10 +50,10 @@ public class PhysicsNode {
                 continue;
             }
             // collision detection
-            Vec2f deltaPos = new Vec2f(n.getLocation().x - this.getLocation().x, n.getLocation().y - this.getLocation().y);
+            Vector2D deltaPos = new Vector2D(n.getLocation().x - this.getLocation().x, n.getLocation().y - this.getLocation().y);
             float distanceBetweenNodes = this.getLocation().distance(n.getLocation());
-            Vec2f direction = new Vec2f(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
-            Vec2f reverseDirection = new Vec2f(-direction.x, -direction.y);
+            Vector2D direction = new Vector2D(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
+            Vector2D reverseDirection = new Vector2D(-direction.x, -direction.y);
             if (n.radius + this.radius > distanceBetweenNodes) {
                 float distanceToMove = n.radius + this.radius - distanceBetweenNodes;
                 float totalMass = n.mass + this.mass;
@@ -65,26 +63,22 @@ public class PhysicsNode {
         }
     }
 
-    private void moveByVector(Vec2f deltaLocation, float distance) {
-        location.x += deltaLocation.x * distance;
-        location.y += deltaLocation.y * distance;
+    private void moveByVector(Vector2D deltaLocation, float distance) {
+        location = location.translate(deltaLocation.scale(distance));
     }
 
     public void update(float time) {
-        velocity.x += forces.x / mass * time;
-        velocity.y += forces.y / mass * time;
+        velocity = velocity.translate(forces.scale(1 / mass).scale(time));
 
         // resistance, so that nodes will settle
-        velocity.x *= .90;
-        velocity.y *= .90;
+        velocity = velocity.scale(.9f);
 
-        forces.set(0, 0);
+        forces = new Vector2D(0, 0);
 
-        location.x += velocity.x * time;
-        location.y += velocity.y * time;
+        location = location.translate(velocity.scale(time));
     }
 
-    public Vec2f getLocation() {
+    public Vector2D getLocation() {
         return location;
     }
 

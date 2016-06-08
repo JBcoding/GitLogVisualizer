@@ -38,11 +38,11 @@ public class Vector2D {
         return newVec;
     }
 
-    public double length() {
-        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    public float length() {
+        return (float)Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     }
 
-    public double distance(Vector2D vec) {
-        return Math.sqrt(Math.pow(x - vec.x, 2) + Math.pow(y - vec.y, 2));
+    public float distance(Vector2D vec) {
+        return (float)Math.sqrt(Math.pow(x - vec.x, 2) + Math.pow(y - vec.y, 2));
     }
 }
