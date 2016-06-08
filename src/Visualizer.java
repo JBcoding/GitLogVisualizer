@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.List;
 
 
+
 /**
  * Created by madsbjoern on 30/05/16.
  */
@@ -57,7 +58,7 @@ public class Visualizer {
     private static Node masterNode;
     public void createVideo() {
         int numberOfImages = commits.size() * 100;
-        numberOfImages = 2000;
+        numberOfImages = 1000;
 
         int w = 1280;
         int h = 720;
@@ -77,6 +78,8 @@ public class Visualizer {
         double angleGoal = 0.f;
 
         double[] angleAtTime = new double[100];
+
+        LabelBox lb = new LabelBox("VERY LONG TITLE TO ANNOY YOU", 0, 720);
 
         for (int i = -99; i < numberOfImages; i ++) {
             float deltaTime = 1 / 15.f;
@@ -112,9 +115,12 @@ public class Visualizer {
             BufferedImage off_Image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2 = off_Image.createGraphics();
 
-            g2.setColor(Color.WHITE);
+            g2.setColor(new Color(42, 44, 43));
             g2.fillRect(0, 0, w, h);
-            g2.setColor(Color.BLACK);
+            g2.drawImage(AuthorImageRetriever.getImage(commits.get(10)), 0, 0, 80, 80, null);
+            g2.setColor(Color.WHITE);
+            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset);
+
 
             // calculate scale, offset and rotation
             // scale

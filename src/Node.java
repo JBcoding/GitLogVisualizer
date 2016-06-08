@@ -35,7 +35,7 @@ public class Node {
         int x = (int)(tempVec.x * scale + offset.x);
         int y = (int)(tempVec.y * scale + offset.y);
         Color oldColor = g.getColor();
-        g.setColor(new Color(oldColor.getRed(), oldColor.getGreen(), oldColor.getBlue(), alpha));
+        g.setColor(new Color(oldColor.getRed(), oldColor.getGreen(), oldColor.getBlue(), (int)(alpha*255)));
         g.drawOval(x - 2, y - 2, 4, 4);
         g.setColor(new Color(1, 0, 0, alpha));
         g.drawString(name, x, y);

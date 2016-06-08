@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
@@ -40,7 +41,7 @@ public final class AuthorImageRetriever {
 
         BufferedImage userAvatar;
         try {
-            userAvatar = ImageIO.read(new URL(url));
+            userAvatar = cropImage(ImageIO.read(new URL(url)));
             foundAuthors.add(url);
             authorImages.add(userAvatar);
         } catch (IOException e) {
@@ -48,6 +49,33 @@ public final class AuthorImageRetriever {
         }
 
         return userAvatar;
+    }
+
+    private static BufferedImage cropImage(BufferedImage image) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        BufferedImage newImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+        Point center = new Point(width / 2, height / 2);
+        int radius = center.x; //Half of width, will have width as diameter
+
+        final int transparentPixel = 0x00000000;
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                double distanceFromCenter = Math.sqrt(Math.pow(center.x - x, 2) + Math.pow(center.y - y, 2));
+                if (distanceFromCenter <= radius - 1) {
+                    newImage.setRGB(x, y, image.getRGB(x, y)); //Remove whatever transparency image may have
+                } else if (distanceFromCenter <= radius) {
+                    newImage.setRGB(x, y, image.getRGB(x, y) + 0x50000000);
+                } else {
+                    newImage.setRGB(x, y, transparentPixel);
+                }
+            }
+        }
+
+        return newImage;
     }
 
     private static String hex(byte[] array) {
