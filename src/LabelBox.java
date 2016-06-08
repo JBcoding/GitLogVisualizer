@@ -23,15 +23,20 @@ public class LabelBox {
     }
 
     public void setContent(Graphics2D graphic, String ... labels) {
+        boolean equal = false;
         if (labels.length == content.size()) {
+            equal = true;
             for (int i = 0; i < labels.length; i++) {
                 if (!labels[i].equals(content.get(i))) {
-                    content.clear();
-                    content.addAll(Arrays.asList(labels));
-                    updateImage(graphic);
+                    equal = false;
                     break;
                 }
             }
+        }
+        if (!equal) {
+            content.clear();
+            content.addAll(Arrays.asList(labels));
+            updateImage(graphic);
         }
 
         graphic.drawImage(image, x, y - height, null);
