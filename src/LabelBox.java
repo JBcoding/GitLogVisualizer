@@ -26,15 +26,14 @@ public class LabelBox {
         if (labels.length == content.size()) {
             for (int i = 0; i < labels.length; i++) {
                 if (!labels[i].equals(content.get(i))) {
+                    content.clear();
+                    content.addAll(Arrays.asList(labels));
+                    updateImage(graphic);
                     break;
                 }
             }
-            graphic.drawImage(image, x, y - height, null);
-            return;
         }
-        content.clear();
-        content.addAll(Arrays.asList(labels));
-        updateImage(graphic);
+
         graphic.drawImage(image, x, y - height, null);
     }
 
