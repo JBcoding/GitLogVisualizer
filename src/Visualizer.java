@@ -54,7 +54,7 @@ public class Visualizer {
     private static Node masterNode;
     public void createVideo() {
         int numberOfImages = commits.size() * 100;
-        numberOfImages = 1000;
+        numberOfImages = 0;
 
         int w = 1280;
         int h = 720;
@@ -80,9 +80,8 @@ public class Visualizer {
 
         LabelBox lb = new LabelBox("VERY LONG TITLE TO ANNOY YOU", 0, 720);
 
-        List<Beam> beams = new ArrayList<>();
-
         for (int i = -99; i < numberOfImages; i ++) {
+            List<Beam> beams = new ArrayList<>();
             float deltaTime = 1 / 15.f;
             if (i % 100 == 0) {
                 Commit commit = commits.get(i / 100);
@@ -127,8 +126,6 @@ public class Visualizer {
             g2.setColor(new Color(42, 44, 43));
             g2.fillRect(0, 0, w, h);
             g2.setColor(Color.WHITE);
-            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset, "Frame: " + i);
-
 
             // calculate scale, offset and rotation
             // scale
@@ -280,6 +277,7 @@ public class Visualizer {
                     j --;
                 }
             }
+            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset, "Frame: " + i);
         }
     }
 
