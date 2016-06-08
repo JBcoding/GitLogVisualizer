@@ -1,8 +1,8 @@
 import com.sun.javafx.geom.Vec2f;
-import javafx.geometry.Bounds;
 
-import javax.swing.*;
 import java.awt.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class Node {
     private List<Spring> allSprings;
 
     public Node(Vec2f location, float mass, List<Spring> allSprings) {
-        physics = new PhysicsNode(location, mass);
+        physics = new PhysicsNode(location, mass, 20, this);
         folder = false;
         name = "";
         children = new ArrayList<>();
@@ -35,10 +35,8 @@ public class Node {
         int x = (int)(tempVec.x * scale + offset.x);
         int y = (int)(tempVec.y * scale + offset.y);
         Color oldColor = g.getColor();
-        g.setColor(new Color(oldColor.getRed(), oldColor.getGreen(), oldColor.getBlue(), (int)(alpha*255)));
-        g.drawOval(x - 2, y - 2, 4, 4);
-        g.setColor(new Color(1, 0, 0, alpha));
-        g.drawString(name, x, y);
+        g.setColor(getHashColor());
+        g.fillOval((int) (x - physics.getRadius() * scale), (int) (y - physics.getRadius() * scale), (int)(physics.getRadius() * scale * 2), (int)(physics.getRadius() * scale * 2));
         g.setColor(oldColor);
         for (Node child : children) {
             child.draw(g, scale, offset, angle, rectCentrum);
@@ -53,6 +51,29 @@ public class Node {
         physics.doNodeRepulsion(nodes);
         for (Node n : children) {
             n.doNodeRepulsion(nodes);
+        }
+    }
+
+    public Color getHashColor() {
+        String toHash = "";
+        String[] nameParts = name.split("\\.");
+        if (nameParts.length > 1) {
+            toHash = nameParts[nameParts.length - 1];
+        }
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            return new Color(0, 0, 0, (int)(alpha * 255));
+        }
+        byte[] thedigest = md.digest(toHash.getBytes());
+        return new Color(thedigest[0] + 128, thedigest[1] + 128, thedigest[2] + 128, (int)(alpha * 255));
+    }
+
+    public void collisionDetection(List<PhysicsNode> nodes) {
+        physics.collisionDetection(nodes);
+        for (Node n : children) {
+            n.collisionDetection(nodes);
         }
     }
 
@@ -102,13 +123,23 @@ public class Node {
     public void addChild(Node child) {
         children.add(child);
         child.setParent(this);
-        Spring mainSpring = new Spring(this, child, 50, 50, true);
+        Spring mainSpring = new Spring(this, child, (child.folder ? 75 : 50), (child.folder ? 400 : 60), true);
         allSprings.add(mainSpring);
         alpha = 1;
     }
 
     public void addSpring(Spring spring) {
         springs.add(spring);
+    }
+
+    public int getNumberOfChildrenWitoutFolders() {
+        int count = 0;
+        for (Node child : children) {
+            if (!child.folder) {
+                count ++;
+            }
+        }
+        return count;
     }
 
     public Node findChildWithName(String name) {
@@ -143,7 +174,8 @@ public class Node {
         Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
         int x = (int)tempVec.x;
         int y = (int)tempVec.y;
-        int[] rect = new int[] {x, y, x, y};
+        float radius = physics.getRadius();
+        int[] rect = new int[] {(int) (x - radius), (int) (y - radius), (int) (x + radius), (int) (y + radius)};
         getBoundingBox(rect, angle, lastCentrum);
         return rect;
     }
@@ -152,10 +184,11 @@ public class Node {
         Vec2f tempVec = Visualizer.rotateVecter(physics.getLocation(), angle, lastCentrum);
         int x = (int)tempVec.x;
         int y = (int)tempVec.y;
-        if (rect[0] > x) {rect[0] = x;}
-        if (rect[1] > y) {rect[1] = y;}
-        if (rect[2] < x) {rect[2] = x;}
-        if (rect[3] < y) {rect[3] = y;}
+        float radius = physics.getRadius();
+        if (rect[0] > x - radius) {rect[0] = (int) (x - radius);}
+        if (rect[1] > y - radius) {rect[1] = (int) (y - radius);}
+        if (rect[2] < x + radius) {rect[2] = (int) (x + radius);}
+        if (rect[3] < y + radius) {rect[3] = (int) (y + radius);}
         for (Node child : children) {
             child.getBoundingBox(rect, angle, lastCentrum);
         }
