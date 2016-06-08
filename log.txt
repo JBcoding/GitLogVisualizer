@@ -1,722 +1,192 @@
-commit 1e74a62a3a2f3018c0c8ff221b67896bb4071269
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Sun Apr 17 16:18:40 2016 +0200
+commit ed29b975a326a4d24b0c3c84f4597e4a11fac882
+Author: Mads <mads12bjoern@gmail.com>
+Date:   Thu Jun 9 01:13:05 2016 +0200
 
-    Delay, Statement and If menus are done
+    Vector2D integrated in all classes
 
-M	src/ConditionalExecution.java
-M	src/Constant.java
-M	src/IfComponent.java
-A	src/UI/DelayMenu.java
-M	src/UI/Flowduino.java
-A	src/UI/IfMenu.java
-A	src/UI/Menu.java
-A	src/UI/StatementMenu.java
-M	src/UI/VariablesMenu.java
-M	src/Variable.java
+M	src/Beam.java
+M	src/Node.java
+M	src/PhysicsNode.java
+M	src/PhysicsSpring.java
+M	src/Spring.java
+M	src/Vector2D.java
+M	src/Visualizer.java
 
-commit 8721225ddb88572a204d25909b7ae38f539faee5
-Merge: fef67d0 0a65a60
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Mon Mar 28 21:47:58 2016 +0200
+commit e9a27388ff7143d17979d6094e5fa63a5ad82d41
+Author: Mads <mads12bjoern@gmail.com>
+Date:   Thu Jun 9 00:40:06 2016 +0200
+
+    Small bug fixes
+
+M	src/Visualizer.java
+
+commit 73101c1bafda2e98776c968abc93017157171fae
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Thu Jun 9 00:38:07 2016 +0200
+
+    LabelBox gets drawn on top
+
+M	src/Visualizer.java
+
+commit 4c3f6cb9a7a565a972caab46347bb97f606f41d8
+Merge: bebe2dc b2a6918
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Thu Jun 9 00:35:08 2016 +0200
 
     Merge remote-tracking branch 'origin/master'
 
-commit fef67d05970efd94e7cc6b05aac73d347de04245
-Author: Mads, Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Mon Mar 28 21:47:48 2016 +0200
-
-    Drag and drop between multiple applications now supported
-
-M	src/UI/Flowduino.java
-
-commit 0a65a608754022cc6add3edd658c6af4e17c05d4
+commit bebe2dc5601bdcff0d95db11619cf34d3a8f38df
 Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Mon Mar 28 21:29:54 2016 +0200
+Date:   Thu Jun 9 00:34:55 2016 +0200
 
-    Begun work on new menus
+    Added new Vector type with useful methods
 
-A	.idea/dictionaries/mathias.xml
-D	arduinos/Adafruit_Atmega32u4_Breakout.svg
-D	arduinos/ArduPilotMega_v15_breadboard.svg
-D	arduinos/Arduino Nano3_breadboard.svg
-D	arduinos/Arduino-BLE-LowPower-RevB-final_5_breadboard.svg
-D	arduinos/Arduino-Ethernet-v11_breadboard.svg
-D	arduinos/Arduino-Fio-v22_bottom_breadboard.svg
-D	arduinos/Arduino-Fio-v22_breadboard.svg
-D	arduinos/Arduino-Mini-v5_breadboard.svg
-D	arduinos/Arduino-Pro-Mini-v13_breadboard.svg
-D	arduinos/ArduinoBluetoothMatev13_breadboard.svg
-D	arduinos/Arduino_ADK_MEGA_2560-Rev3_breadboard.svg
-D	arduinos/Arduino_DUE_V02b_breadboard.svg
-D	arduinos/Arduino_Esplora_breadboard.svg
-D	arduinos/Arduino_Ethernet_breadboard.svg
-D	arduinos/Arduino_Leonardo_Rev3_breadboard.svg
-D	arduinos/Arduino_MEGA_2560-Rev3_breadboard.svg
-D	arduinos/Arduino_Micro_Rev03_breadboard.svg
-D	arduinos/Arduino_Motor_Shield_rev3_breadboard.svg
-D	arduinos/Arduino_Pro_breadboard.svg
-D	arduinos/Arduino_bt07_breadboard.svg
-D	arduinos/Ardumoto v13_breadboard.svg
-D	arduinos/arduinoXbeere_breadboard.svg
-D	arduinos/arduino_Uno_Rev3_breadboard-old.svg
-D	arduinos/arduino_Uno_Rev3_breadboard.svg
-D	arduinos/arduino_Yun(rev1)_breadboard.svg
-D	arduinos/arduino_mini_usb_adapter.svg
-D	arduinos/arduino_uno(rev3)-icsp(1)_breadboard.svg
-D	arduinos/arduino_uno(rev3)-icsp_breadboard.svg
-M	src/PeripheralFunction.java
-A	src/PeripheralFunctionComponent.java
-A	src/UI/Arduino.java
-A	src/UI/PeripheralFunctionMenu.java
-A	src/UI/ProjectSettings.java
-A	src/UI/ProjectSettingsMenu.java
-M	src/UI/VariablesMenu.java
-M	test/TestNode.java
+A	src/Vector2D.java
 
-commit 69879d54329621e304a690ee5873dba16d8a2edf
-Author: Mads, Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Mon Mar 28 21:22:19 2016 +0200
+commit b2a6918a1bcbb220e90eee5d0951262014343a97
+Author: Mads <mads12bjoern@gmail.com>
+Date:   Thu Jun 9 00:16:37 2016 +0200
 
-    Drag and drop between components added
+    Added beams, on changes, additions and deletions
 
-M	src/UI/Flowduino.java
-
-commit 0d53def2ed734189b27e0e619bbe25e91c359606
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Mon Mar 28 12:58:42 2016 +0200
-
-    Added variablesmenu and new shapes for components
-
-M	images/Break.png
-M	images/Delay.png
-M	images/Endif.png
-M	images/Endloop.png
-M	images/If.png
-M	images/Loop.png
-M	images/Statement.png
-M	src/Constant.java
-M	src/UI/Flowduino.java
-A	src/UI/VariablesMenu.java
-M	src/UI/style.css
-
-commit 567bda61bf1ed279796c636329945c1320c5cdfb
-Author: Mads, Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Sat Mar 26 12:47:24 2016 +0100
-
-    Added copying and pasting, setupconstructors for peripherals,
-
-M	Blocks/LED.fd
-M	Blocks/Serial.fd
-A	arduinos/Adafruit_Atmega32u4_Breakout.svg
-A	arduinos/ArduPilotMega_v15_breadboard.svg
-A	arduinos/Arduino Nano3_breadboard.svg
-A	arduinos/Arduino-BLE-LowPower-RevB-final_5_breadboard.svg
-A	arduinos/Arduino-Ethernet-v11_breadboard.svg
-A	arduinos/Arduino-Fio-v22_bottom_breadboard.svg
-A	arduinos/Arduino-Fio-v22_breadboard.svg
-A	arduinos/Arduino-Mini-v5_breadboard.svg
-A	arduinos/Arduino-Pro-Mini-v13_breadboard.svg
-A	arduinos/ArduinoBluetoothMatev13_breadboard.svg
-A	arduinos/Arduino_ADK_MEGA_2560-Rev3_breadboard.svg
-A	arduinos/Arduino_DUE_V02b_breadboard.svg
-A	arduinos/Arduino_Esplora_breadboard.svg
-A	arduinos/Arduino_Ethernet_breadboard.svg
-A	arduinos/Arduino_Leonardo_Rev3_breadboard.svg
-A	arduinos/Arduino_MEGA_2560-Rev3_breadboard.svg
-A	arduinos/Arduino_Micro_Rev03_breadboard.svg
-A	arduinos/Arduino_Motor_Shield_rev3_breadboard.svg
-A	arduinos/Arduino_Pro_breadboard.svg
-A	arduinos/Arduino_bt07_breadboard.svg
-A	arduinos/Ardumoto v13_breadboard.svg
-A	arduinos/arduinoXbeere_breadboard.svg
-A	arduinos/arduino_Uno_Rev3_breadboard-old.svg
-A	arduinos/arduino_Uno_Rev3_breadboard.svg
-A	arduinos/arduino_Yun(rev1)_breadboard.svg
-A	arduinos/arduino_mini_usb_adapter.svg
-A	arduinos/arduino_uno(rev3)-icsp(1)_breadboard.svg
-A	arduinos/arduino_uno(rev3)-icsp_breadboard.svg
-M	src/BreakComponent.java
-M	src/Case.java
-M	src/ConditionalExecution.java
-M	src/Constant.java
-M	src/DelayComponent.java
-M	src/ForLoop.java
-M	src/ICase.java
-M	src/IComponent.java
-M	src/IfComponent.java
-M	src/Loop.java
+M	.idea/misc.xml
+M	.idea/vcs.xml
+M	GitLogVisualizer.iml
+M	log.txt
+A	src/Beam.java
 M	src/Node.java
-M	src/Peripheral.java
-M	src/StatementComponent.java
-M	src/UI/Flowduino.java
-M	src/Variable.java
-M	src/WhileLoop.java
+M	src/Visualizer.java
 
-commit bf80393841ef1d5f6601853c2f2c80052abab1b6
+commit 7699a7490a75e693a01b73bf8a4b7671ec8ee5a2
+Author: Mads <mads12bjoern@gmail.com>
+Date:   Wed Jun 8 23:19:35 2016 +0200
+
+    Added hash colors and, and avatars to screen
+
+M	src/Node.java
+M	src/PhysicsNode.java
+M	src/Spring.java
+M	src/Visualizer.java
+
+commit 83fcbaea877bc6e6ab9569171eb2bec6e6ca7fd3
 Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Sat Mar 26 12:14:41 2016 +0100
+Date:   Wed Jun 8 23:02:00 2016 +0200
 
-    Added boxtypes for infoboxes
+    Changed default images from Gravatar, LabelBox appearance
 
-M	src/UI/AlertBox.java
+M	src/AuthorImageRetriever.java
+M	src/LabelBox.java
 
-commit c65aedaabbce9d83af1aa37b62a24f5f811df8f0
+commit 916dc349003043dae31868432b08320706baf7bd
 Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Sat Mar 26 12:10:40 2016 +0100
+Date:   Wed Jun 8 21:21:16 2016 +0200
 
-    Now it's static as well.
+    ...
 
-M	src/UI/AlertBox.java
+M	src/LabelBox.java
 
-commit bbe8f402533e9568532505c837fdbdd2a3ac3e89
+commit 3d1c9074b82f561a888f48fc2fa7a0da72c849c9
 Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Sat Mar 26 12:07:14 2016 +0100
+Date:   Wed Jun 8 21:17:20 2016 +0200
 
-    Another run icon as well as infobox
+    Should now actually update text in LabelBox
 
-M	images/run.png
-M	src/UI/AlertBox.java
+M	src/LabelBox.java
 
-commit 12bd99bc17a55fc24cf57da47d7819eac58f38b0
+commit 7e4e453e5816d5f5d4321cda6a4acd27e5b4433e
 Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Sat Mar 26 11:08:16 2016 +0100
+Date:   Wed Jun 8 21:06:31 2016 +0200
 
-    Extra icon for new document
+    Added LabelBox and round images
 
-A	images/Statement.png
-A	images/new.png
-D	images/statement.png
+M	src/AuthorImageRetriever.java
+A	src/LabelBox.java
+M	src/Node.java
+M	src/Spring.java
+M	src/Visualizer.java
 
-commit cfcf5f0549615d9ebf3e10abd744bec3aa049d0a
-Merge: 8a33c4d 8dd767a
+commit dd3af76c65ecbd886a9b312ae0647e06e6798f0f
 Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Sat Mar 26 10:15:17 2016 +0100
+Date:   Wed Jun 8 16:47:37 2016 +0200
+
+    Removed movie
+
+D	movie.mov
+
+commit d15ca42e62e38cda2f38433b265e3175bc7b5c92
+Merge: 0619ead 6072d79
+Author: Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Wed Jun 8 16:47:11 2016 +0200
 
     Merge remote-tracking branch 'origin/master'
     
     # Conflicts:
-    #	src/UI/style.css
+    #	movie.mov
 
-commit 8a33c4d16b777b9e55cd00db2498f047e1540799
+commit 0619ead26549addce5a28ad7c375179e1e587bbb
 Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Sat Mar 26 10:14:40 2016 +0100
+Date:   Wed Jun 8 16:46:05 2016 +0200
 
-    Different icons and alert box rework
+    Added images from gravatar
 
-M	images/open.png
-M	images/run.png
-M	images/save.png
-A	images/saveAs.png
-M	src/Document.java
-A	src/UI/AlertBox.java
-A	src/UI/AlertResponse.java
-M	src/UI/Flowduino.java
-M	src/UI/style.css
+M	.idea/misc.xml
+A	.idea/vcs.xml
+M	GitLogVisualizer.iml
+M	movie.mov
 
-commit 8dd767a97cafef8c962687dbea541ed439ddb9cc
+commit 453f3813119f62c4cc7038b6c72664a91b2bfaff
+Author: Mathias Mathias Jakobsen <mathias@jbcoding.com>
+Date:   Wed Jun 8 16:45:39 2016 +0200
+
+    Added images from gravatar
+
+A	src/AuthorImageRetriever.java
+M	src/Commit.java
+M	src/Visualizer.java
+
+commit 6072d79f857f0173cb410342a9af2a263692a973
+Author: Mads <mads12bjoern@gmail.com>
+Date:   Wed Jun 8 16:29:31 2016 +0200
+
+    Mate rotation smoother, and increased pipe speed
+
+M	movie.mov
+M	src/ImageAndVideoProcessor.java
+M	src/Visualizer.java
+
+commit aee9bd8ee168b2f69fd38c8db36cea488d56f1ee
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Sat Mar 26 10:07:32 2016 +0100
+Date:   Wed Jun 8 00:02:08 2016 +0200
 
-    Added images to previous commit
+    Rotaation added
 
-A	images/Break.png
-A	images/Delay.png
-A	images/Endif.png
-A	images/Endloop.png
-A	images/If.png
-A	images/Loop.png
-A	images/statement.png
-
-commit 8da6eb7675c4a206e7a8214ff64628c38d4a5210
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Sat Mar 26 10:06:48 2016 +0100
-
-    Added images to all control components
-
-M	src/UI/Flowduino.java
-M	src/UI/style.css
-
-commit ce0589e76b38b70f7c6b851c21618539ecbcc4ed
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Sat Mar 26 00:42:02 2016 +0100
-
-    Lines in program view added, and save/load of files
-
-M	src/Document.java
-M	src/UI/Flowduino.java
-
-commit c7d2c9483820d46e2a4d7c643c9daedda8c93e2a
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Sat Mar 26 00:36:08 2016 +0100
-
-    Lines in program view added, and save/load of files
-
-M	src/Document.java
-M	src/ICase.java
-M	src/IComponent.java
-M	src/IValues.java
+M	movie.mov
 M	src/Node.java
-M	src/Peripheral.java
-M	src/PeripheralFunction.java
-M	src/Settings.java
-M	src/UI/Flowduino.java
-M	src/Variables.java
+M	src/Spring.java
+M	src/Visualizer.java
 
-commit 79493cb150abb9746756848e337ca5b08d22901e
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 23:12:24 2016 +0100
-
-    More options for dialog before quitting
-
-M	src/UI/Flowduino.java
-M	src/UI/style.css
-
-commit 9796efaaeef1e9d6a58e1cd7f72394517d6d2671
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 23:07:08 2016 +0100
-
-    Check for empty head before prompting for close
-
-M	src/UI/Flowduino.java
-
-commit 477ed819717fcfc58e79a9a4218da4140011ca7a
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 23:00:20 2016 +0100
-
-    Further styling and close dialog
-
-M	src/UI/Flowduino.java
-M	src/UI/style.css
-
-commit 4fbc4236f475adb92d1b5eee30eaba15cccc876e
-Merge: 730720e 612b67d
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 22:34:43 2016 +0100
-
-    Merge remote-tracking branch 'origin/master'
-
-commit 730720e1ec62bb9d1d1823800bbb360ee85829df
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 22:34:33 2016 +0100
-
-    Added support for context menus
-
-M	images/background.png
-A	images/run.png
-M	src/UI/Flowduino.java
-M	src/UI/style.css
-
-commit 612b67d38e05873670c1ac253ad9c2a9d1f2e2d2
+commit f58a8e2f14a9eb5fb752c04ae7c7bf9477d0c747
 Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 22:34:23 2016 +0100
-
-    if-cases fixed
-
-A	src/UI/BranchData.java
-M	src/UI/Flowduino.java
-
-commit e214d532a34dbd548f5d761754a7ec4fd8d69119
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 21:47:41 2016 +0100
-
-    target style clasess
-
-M	src/UI/Flowduino.java
-
-commit 33d418c18040b2c2accb3f97edec90a8e2dd0c70
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 21:36:51 2016 +0100
-
-    Borders could now be fixed and with working scrollbars at that
-
-M	src/UI/style.css
-
-commit bcc1f05424753ba0429d1bd350419b05bc22e8ac
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 21:34:40 2016 +0100
-
-    If-cases added
-
-M	src/UI/Flowduino.java
-M	src/UI/style.css
-
-commit e2a57ed65113621ef48a4a6fd893372ff0c64f56
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 21:25:46 2016 +0100
-
-    I can't figure out how to remove the glow :(
-
-M	src/UI/style.css
-
-commit d11bf377770146563e7c744088cea8443f4113f7
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 21:22:50 2016 +0100
-
-    ProgramView Updated agian,  agian....
-
-M	src/UI/Flowduino.java
-
-commit b960394392f7d1cd12fb343de04b14bdbce05a3c
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 21:05:55 2016 +0100
-
-    More scrollbars
-
-M	src/UI/Flowduino.java
-M	src/UI/style.css
-
-commit 192fc1b1e3c441b6d0e7c462796fcfeb29f570bd
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 20:47:08 2016 +0100
-
-    ProgramView Updated agian
-
-M	src/UI/Flowduino.java
-
-commit 778465b34f5c10faaca947211a3d8954af34685d
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 20:43:05 2016 +0100
-
-    ProgramView Updated
-
-M	src/UI/Flowduino.java
-
-commit dd314fe0b2faa38cab3d6b302a7ebe23b4d3059a
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 20:39:08 2016 +0100
-
-    More scrollbars and background image in program view
-
-A	images/background.png
-A	images/open.png
-M	src/UI/style.css
-
-commit e8265b54b8844572962601f0aa55e23360124fa0
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 20:36:17 2016 +0100
-
-    Loop can be dragged in
-
-M	src/IfComponent.java
-M	src/UI/Flowduino.java
-
-commit 30484a49d17e7d61630a67dc228c94f62efe0dcb
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 20:09:23 2016 +0100
-
-    Added openbutton and margins in menubar as well as begun working on scrollbars
-
-M	src/UI/Flowduino.java
-M	src/UI/IconMenu.java
-M	src/UI/style.css
-
-commit ea8ee899f8933866df877cdbc513a40d2288573b
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 20:01:51 2016 +0100
-
-    Program view add in scrollPane
-
-M	src/UI/Flowduino.java
-M	src/UI/IconMenu.java
-
-commit e086698431c874fe7753556f81ec97903fae85f3
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 19:17:07 2016 +0100
-
-    Delay, Break, Statement can now be dragged in
-
-M	src/BreakComponent.java
-M	src/DelayComponent.java
-M	src/Document.java
-M	src/Node.java
-M	src/StatementComponent.java
-M	src/UI/Flowduino.java
-M	src/UI/IconMenu.java
-M	test/TestNode.java
-M	test/TestStatementComponent.java
-
-commit ec0d8d7545ccc8889e8f5d50fc73cf440eb90f81
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 18:21:42 2016 +0100
-
-    Added temporary image for save button
-
-A	images/save.png
-
-commit 82caf4da17ae861eefc5d42ddd02e5237da8e091
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 18:16:50 2016 +0100
-
-    Added menubar
-
-M	src/UI/Flowduino.java
-A	src/UI/IconMenu.java
-M	src/UI/style.css
-
-commit 2c5ed61d6e049b65a6fc06a5fedc82291950f4d5
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 17:03:23 2016 +0100
-
-    Began styling for UI
-
-M	src/UI/Flowduino.java
-A	src/UI/style.css
-
-commit b4ab8b31ddb38ca8fd8980ab305518f326cb4fa2
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 16:52:18 2016 +0100
-
-    Buttons added
-
-M	src/Document.java
-M	src/UI/Flowduino.java
-
-commit e932ac027a7997973ea0939f2359e51ac66a0c81
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 16:07:51 2016 +0100
-
-    StatementComponet updated
-
-M	Blocks/Serial.fd
-M	src/StatementComponent.java
-M	src/UI/Flowduino.java
-
-commit 7d0b78722d74a02cbaddf29bad73df6f0eda3e2a
-Merge: c64c4db 6853cc5
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 15:41:31 2016 +0100
-
-    Merge branch 'master' of https://github.com/JBcoding/Flowduino
-
-commit c64c4db67b43b3eb0b14731f7e98a195773f3f7e
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 15:41:16 2016 +0100
-
-    UI v0.1
-
-M	.DS_Store
-M	src/.DS_Store
-M	src/Document.java
-D	src/FileReader.java
-D	src/Flowduino.java
-M	src/Peripheral.java
-M	src/PeripheralFunction.java
-A	src/UI/.DS_Store
-A	src/UI/Flowduino.java
-M	test/.DS_Store
-M	test/TestStatementComponent.java
-
-commit 6853cc5de8a7a90e663223b40166336d54e93e33
-Merge: a8f4665 e676c5c
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 14:20:48 2016 +0100
-
-    Merge remote-tracking branch 'origin/master'
-
-commit a8f466524cdd3565e8b8d62d907a28efc788cf3b
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 14:20:38 2016 +0100
-
-    Added Serial as block as well as break-component
-
-A	Blocks/Serial.fd
-A	src/BreakComponent.java
-
-commit e676c5c94b06d7c5dfac6fbf9b4ea87ac4f3b6aa
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Fri Mar 25 13:29:23 2016 +0100
-
-    relocated Peripheral.java
-
-M	.DS_Store
-D	Peripheral.java
-M	src/.DS_Store
-A	src/Document.java
-A	src/Peripheral.java
-M	src/Variables.java
-
-commit 60920c51756c1f94daeb4b1def46d7a92c4a7ca6
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Fri Mar 25 13:18:40 2016 +0100
-
-    Added unit tests StatementComponent error handling aswell as added final class for handling variables.
-
-M	src/Flowduino.java
-A	src/MalformedExpressionException.java
-M	src/StatementComponent.java
-A	src/VariableNotFoundException.java
-A	src/Variables.java
-M	test/TestStatementComponent.java
-
-commit 75306d214012f911af6c54b1ebf32ffe0b49763c
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Thu Mar 24 00:41:34 2016 +0100
-
-    Added reader for blocks
-
-A	Blocks/LED.fd
-A	Blocks/Servo.fd
-A	Peripheral.java
-A	src/FileReader.java
-M	src/Flowduino.java
-A	src/GenericPeripheral.java
-A	src/PeripheralFunction.java
-
-commit c3b9a35bf22996aeec1dc4195ec2edd4927be2fc
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Wed Mar 23 20:45:33 2016 +0100
-
-    Sample code added
-
-M	.DS_Store
-D	Flowduino.java
-M	src/.DS_Store
-A	src/Flowduino.java
-M	src/ForLoop.java
-M	src/StatementComponent.java
-M	test/TestForLoop.java
-M	test/TestStatementComponent.java
-
-commit b70e36e70d0ce115d2e38ae7aa5392a56df0291e
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Wed Mar 23 18:59:18 2016 +0100
-
-    All JUint tasts passed
-
-M	.DS_Store
-A	src/.DS_Store
-M	src/Case.java
-M	src/ConditionalExecution.java
-M	src/Constant.java
-M	src/DelayComponent.java
-M	src/ForLoop.java
-M	src/IfComponent.java
-M	src/Loop.java
-M	src/Node.java
-M	src/Settings.java
-M	src/StatementComponent.java
-M	src/Variable.java
-M	src/WhileLoop.java
-A	test/.DS_Store
-M	test/TestCase.java
-M	test/TestDelayComponent.java
-M	test/TestIfComponent.java
-M	test/TestStatementComponent.java
-M	test/TestVariable.java
-M	test/TestWhileLoop.java
-
-commit 6c3faae616e519e6466bc8d485a8f4ad8b62502a
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Wed Mar 23 16:56:29 2016 +0100
-
-    JUint tests done (for now)
-
-A	src/Case.java
-A	src/ConditionalExecution.java
-M	src/ForLoop.java
-A	src/ICase.java
-M	src/IValues.java
-A	src/IfComponent.java
-M	src/Loop.java
-A	src/WhileLoop.java
-A	test/TestCase.java
-A	test/TestForLoop.java
-A	test/TestIfComponent.java
-A	test/TestWhileLoop.java
-
-commit 1dc06523ab85de38dece1ebec807240032680c72
-Merge: 44cb25e 032bd30
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Wed Mar 23 13:06:56 2016 +0100
-
-    Merge branch 'master' of https://github.com/JBcoding/Flowduino
-
-commit 44cb25e30206310e373faade755cb797ab126fe7
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Wed Mar 23 13:06:20 2016 +0100
-
-    shit
-
-A	.DS_Store
-A	AutoJUint.py
-A	Comppile and run
-M	Flowduino.java
-
-commit 032bd307cb9d8e6f168055f271d24ab9c9c7ac11
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Wed Mar 23 13:03:45 2016 +0100
-
-    More JUnit tests and components
-
-A	src/Constant.java
-A	src/DelayComponent.java
-A	src/ForLoop.java
-A	src/IValues.java
-A	src/Loop.java
-M	src/Node.java
-A	src/Settings.java
-A	src/Variable.java
-A	test/TestConstant.java
-A	test/TestDelayComponent.java
-M	test/TestNode.java
-M	test/TestStatementComponent.java
-A	test/TestVariable.java
-
-commit f0a5491ec685ef4a6a2481a4735fabdc9746ffa2
-Author: Mathias Jakobsen <mathias@jbcoding.com>
-Date:   Wed Mar 23 00:53:58 2016 +0100
-
-    Started adding JUnit tests for Nodes and StatementComponents
-
-M	Flowduino.java
-A	src/IComponent.java
-D	src/JUT.java
-A	src/Node.java
-A	src/StatementComponent.java
-D	test/TestJUT.java
-A	test/TestNode.java
-A	test/TestStatementComponent.java
-
-commit 2325ad31217ef70fd07bf994d1d6bf589fd3422a
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Tue Mar 22 23:14:20 2016 +0100
-
-    JUint setup .jar files added
-
-A	hamcrest-core-1.3.jar
-
-commit c917a464e26fb7ce81509cd963c8eb330b84d011
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Tue Mar 22 22:58:11 2016 +0100
-
-    JUint setup .jar file added
-
-A	junit-4.12.jar
-
-commit 7981074e935de5aa3b9e2a5f46bd8832a05ad820
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Tue Mar 22 22:46:20 2016 +0100
-
-    JUint setup
-
-A	src/JUT.java
-A	test/TestJUT.java
-
-commit 2f5f8a9ad90f02a69ae2429f7d5e62efb94065ac
-Author: Mads Bjoern <mads12bjoern@gmail.com>
-Date:   Tue Mar 22 22:20:24 2016 +0100
-
-    Project setup
-
-A	Flowduino.java
-
-commit 84b4e61b7bd434ca7a6aadf11c6028c3cc0dc268
-Author: JBcoding <mads12bjoern@gmail.com>
-Date:   Tue Mar 22 22:03:11 2016 +0100
+Date:   Tue Jun 7 19:06:34 2016 +0200
 
     Initial commit
 
-A	.gitignore
-A	LICENSE
-A	README.md
+A	.idea/compiler.xml
+A	.idea/copyright/profiles_settings.xml
+A	.idea/misc.xml
+A	.idea/modules.xml
+A	GitLogVisualizer.iml
+A	log.txt
+A	logs/log P2.txt
+A	logs/log.txt
+A	logs/logPM2000.txt
+A	movie.mov
+A	src/Change.java
+A	src/Commit.java
+A	src/Driver.java
+A	src/ImageAndVideoProcessor.java
+A	src/Node.java
+A	src/PhysicsNode.java
+A	src/PhysicsSpring.java
+A	src/Spring.java
+A	src/Visualizer.java

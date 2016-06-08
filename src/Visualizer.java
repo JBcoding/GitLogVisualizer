@@ -16,7 +16,7 @@ public class Visualizer {
     private List<Commit> commits;
     private ImageAndVideoProcessor imageAndVideoProcessor;
 
-    //java -cp out/production/GitLogVisualizer/ Driver | avconv -y -r 30 -f image2pipe -vcodec ppm -i - -threads 4 movie.mov
+    // java -cp out/production/GitLogVisualizer/ Driver | ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 movie.mp4
 
     public Visualizer() throws FileNotFoundException {
         // check file
@@ -52,7 +52,7 @@ public class Visualizer {
     private static Node masterNode;
     public void createVideo() {
         int numberOfImages = commits.size() * 100;
-        numberOfImages = 1000;
+        //numberOfImages = 1000;
 
         int w = 1280;
         int h = 720;
