@@ -57,9 +57,9 @@ public class LabelBox {
 
         Graphics2D g = image.createGraphics();
 
-        g.setColor(Color.GREEN);
+        g.setColor(new Color(141, 148, 143));
         g.fillRect(0, 0, width, height);
-        g.setColor(Color.WHITE);
+        g.setColor(new Color(194, 194, 194));
         g.fillRect(3, 3, width - 6, height - 6);
 
         g.setColor(Color.BLACK);

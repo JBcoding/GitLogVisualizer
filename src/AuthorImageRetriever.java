@@ -20,19 +20,20 @@ public final class AuthorImageRetriever {
 
         Pattern pattern = Pattern.compile("<(.*?)>");
         Matcher matcher = pattern.matcher(commit.getAuthor());
-        final String baseUrl = "http://gravatar.com/avatar/";
+        final String baseUrl = "https://gravatar.com/avatar/";
 
         String url;
         if (matcher.find()) { //If commit contains email(s)
             String email = matcher.group(1);
-            url = baseUrl + md5Hex(email);
 
-            if (url.contains(",")) { //If multiple emails
-                url = url.split(",")[0];
+            if (email.contains(",")) { //If multiple emails
+                email = email.split(",")[0];
             }
 
+            url = baseUrl + md5Hex(email) + "?d=mm";
+
         } else { //get default gravatar logo
-            url = baseUrl + "default";
+            url = baseUrl + "default?d=mm&f=y";
         }
 
 
