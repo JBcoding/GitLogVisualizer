@@ -1,12 +1,8 @@
-import com.sun.javafx.geom.Matrix3f;
 import com.sun.javafx.geom.Vec2f;
-import sun.nio.cs.ext.MacHebrew;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.sql.Timestamp;
 import java.util.*;
 import java.util.List;
 
@@ -64,7 +60,7 @@ public class Visualizer {
         int h = 720;
 
         List<Spring> springs = new ArrayList<>();
-        masterNode = new Node(new Vec2f(w / 2, h / 2), 100, springs);
+        masterNode = new Node(new Vec2f(w / 2, h / 2), 10, springs);
         masterNode.folder = false;
 
         float currentScale = 1.5f;
@@ -79,21 +75,31 @@ public class Visualizer {
 
         double[] angleAtTime = new double[100];
 
+        List<BufferedImage> lastAuthors = new LinkedList<>();
+        String lastAuthorName = "";
+
         LabelBox lb = new LabelBox("VERY LONG TITLE TO ANNOY YOU", 0, 720);
 
         for (int i = -99; i < numberOfImages; i ++) {
             float deltaTime = 1 / 15.f;
             if (i % 100 == 0) {
-                List<Change> changes = commits.get(i / 100).getChanges();
+                Commit commit = commits.get(i / 100);
+                lastAuthors.add(0, AuthorImageRetriever.getImage(commit));
+                if (lastAuthors.size() == 7) {
+                    lastAuthors.remove(6);
+                }
+                lastAuthorName = commit.getAuthor().split("<")[0];
+                List<Change> changes = commit.getChanges();
                 for (Change c : changes) {
+                    double angle = Math.random() * Math.PI * 2;
                     String name = c.getFileName();
                     String[] nameParts = name.split("/");
                     Node currentNode = masterNode;
                     for (int j = 0; j < nameParts.length - 1; j ++) {
                         Node child = currentNode.findChildWithName(nameParts[j]);
                         if (child == null) {
-                            double angle = Math.random() * Math.PI * 2;
-                            child = new Node(new Vec2f((float)Math.cos(angle) * 40 + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass() / 2, springs);
+                            int layer = calculateLayer(currentNode.getNumberOfChildrenWitoutFolders()) + 2;
+                            child = new Node(new Vec2f((float)Math.cos(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
                             child.name = nameParts[j];
                             child.folder = true;
                             currentNode.addChild(child);
@@ -101,8 +107,8 @@ public class Visualizer {
                         currentNode = child;
                     }
                     if (c.getChangeType() == 'A') {
-                        double angle = Math.random() * Math.PI * 2;
-                        Node newChild = new Node(new Vec2f((float)Math.cos(angle) * 40 + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass() / 2, springs);
+                        int layer = calculateLayer(currentNode.getNumberOfChildrenWitoutFolders()) + 2;
+                        Node newChild = new Node(new Vec2f((float)Math.cos(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
                         newChild.name = nameParts[nameParts.length - 1];
                         newChild.folder = false;
                         currentNode.addChild(newChild);
@@ -117,9 +123,8 @@ public class Visualizer {
 
             g2.setColor(new Color(42, 44, 43));
             g2.fillRect(0, 0, w, h);
-            g2.drawImage(AuthorImageRetriever.getImage(commits.get(10)), 0, 0, 80, 80, null);
             g2.setColor(Color.WHITE);
-            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset);
+            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset, "Frame: " + i);
 
 
             // calculate scale, offset and rotation
@@ -128,7 +133,7 @@ public class Visualizer {
             Vec2f rectCentrum = new Vec2f(w / 2, h / 2);
             float newScale = 1;
             try {
-                newScale = (float)Math.min((double)w / (rect[2] - rect[0]), (double)h / (rect[3] - rect[1]) * 620/720.f);
+                newScale = (float)Math.min((double)w / (rect[2] - rect[0]) * 1180/1280.f, (double)h / (rect[3] - rect[1]) * 620/720.f);
             } catch (ArithmeticException e) {}
             newScale = (float)Math.min(1.5, newScale);
 
@@ -177,7 +182,7 @@ public class Visualizer {
                             if (newRect[3] < point.y) {newRect[3] = (int) point.y;}
                         }
                     }
-                    float angleScale = (float)Math.min((double)w / (newRect[2] - newRect[0]), (double)h / (newRect[3] - newRect[1]) * 620/720.f);
+                    float angleScale = (float)Math.min((double)w / (newRect[2] - newRect[0]) * 1180/1280.f, (double)h / (newRect[3] - newRect[1]) * 620/720.f);
                     if (angleScale > bestAngleScale) {
                         bestAngleScale = angleScale;
                         bestAngle = angle;
@@ -226,15 +231,28 @@ public class Visualizer {
                 }
             }
             currentAngle = angleAtTime[((i - 40) % 100 + 100) % 100];
-            g2.drawString(String.valueOf(currentAngle), 1000, 650);
 
             // draw
             for (Spring s : springs) {
                 s.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
             }
             masterNode.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
-            g2.drawString(String.valueOf(i), 0, 35);
-
+            if (i > 0) {
+                if (lastAuthors.size() == 6) {
+                    BufferedImage img = lastAuthors.get(5);
+                    g2.drawImage(img, 20, 20 + 100 * 4, 100, 100, null);
+                }
+                for (int j = 0; j < Math.min(lastAuthors.size(), 5); j ++) {
+                    BufferedImage img = lastAuthors.get(j);
+                    if (img != null) {
+                        if (i % 100 < 30) {
+                            g2.drawImage(img, 20, (int)Math.max(20, (20 + 100 * j - 3.33 * (30 - (i % 100)))), 100, 100, null);
+                        } else {
+                            g2.drawImage(img, 20, 20 + 100 * j, 100, 100, null);
+                        }
+                    }
+                }
+            }
             try {
                 imageAndVideoProcessor.addImage(off_Image);
             } catch (IOException e) {
@@ -245,8 +263,20 @@ public class Visualizer {
 
             springs.forEach(Spring::update);
             masterNode.doNodeRepulsion(masterNode.getPhysicsNodes());
+            masterNode.collisionDetection(masterNode.getPhysicsNodes());
             masterNode.update(deltaTime);
         }
+    }
+
+    public static int calculateLayer(int numberOfChildren) {
+        int numberInCurrentLayer = 6;
+        int layer = 1;
+        while (numberOfChildren > numberInCurrentLayer) {
+            layer ++;
+            numberOfChildren -= numberInCurrentLayer;
+            numberInCurrentLayer += 6;
+        }
+        return layer;
     }
 
     public static Vec2f rotateVecter(Vec2f vec, double angle, Vec2f offset) {

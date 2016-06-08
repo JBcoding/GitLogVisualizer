@@ -12,10 +12,14 @@ public class PhysicsNode {
     private Vec2f velocity;
     private Vec2f forces;
     private float mass;
+    private float radius;
+    private Node node;
 
-    public PhysicsNode(Vec2f location, float mass) {
+    public PhysicsNode(Vec2f location, float mass, float radius, Node node) {
         this.location = location;
         this.mass = mass;
+        this.radius = radius;
+        this.node = node;
         velocity = new Vec2f(0.0f, 0.0f);
         forces = new Vec2f(0.0f, 0.0f);
     }
@@ -35,11 +39,35 @@ public class PhysicsNode {
             distanceBetweenNodes = Math.max(20, distanceBetweenNodes);
             Vec2f direction = new Vec2f(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
 
-            // F = k * m4 * m1 / d^2
+            // F = k * m1 * m2 / d^2
             float k = 10000.f;
             Vec2f F = new Vec2f(direction.x * k * mass * n.mass / (float)Math.pow(distanceBetweenNodes, 2), direction.y * k * mass * n.mass / (float)Math.pow(distanceBetweenNodes, 2));
             n.ApplyForce(F);
         }
+    }
+
+    public void collisionDetection(List<PhysicsNode> nodes) {
+        for (PhysicsNode n : nodes) {
+            if (n == this) {
+                continue;
+            }
+            // collision detection
+            Vec2f deltaPos = new Vec2f(n.getLocation().x - this.getLocation().x, n.getLocation().y - this.getLocation().y);
+            float distanceBetweenNodes = this.getLocation().distance(n.getLocation());
+            Vec2f direction = new Vec2f(deltaPos.x / distanceBetweenNodes, deltaPos.y / distanceBetweenNodes);
+            Vec2f reverseDirection = new Vec2f(-direction.x, -direction.y);
+            if (n.radius + this.radius > distanceBetweenNodes) {
+                float distanceToMove = n.radius + this.radius - distanceBetweenNodes;
+                float totalMass = n.mass + this.mass;
+                n.moveByVector(direction, (1 - n.mass / totalMass) * distanceToMove);
+                this.moveByVector(reverseDirection, (1 - this.mass / totalMass) * distanceToMove);
+            }
+        }
+    }
+
+    private void moveByVector(Vec2f deltaLocation, float distance) {
+        location.x += deltaLocation.x * distance;
+        location.y += deltaLocation.y * distance;
     }
 
     public void update(float time) {
@@ -62,5 +90,9 @@ public class PhysicsNode {
 
     public float getMass() {
         return mass;
+    }
+
+    public float getRadius() {
+        return radius;
     }
 }
