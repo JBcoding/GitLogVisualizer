@@ -1,5 +1,6 @@
 import com.sun.javafx.geom.Matrix3f;
 import com.sun.javafx.geom.Vec2f;
+import sun.nio.cs.ext.MacHebrew;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -20,7 +21,7 @@ public class Visualizer {
     private List<Commit> commits;
     private ImageAndVideoProcessor imageAndVideoProcessor;
 
-    //java -cp out/production/GitLogVisualizer/ Driver | avconv -y -r 30 -f image2pipe -vcodec ppm -i - movie.mp4
+    //java -cp out/production/GitLogVisualizer/ Driver | avconv -y -r 30 -f image2pipe -vcodec ppm -i - -threads 4 movie.mov
 
     public Visualizer() throws FileNotFoundException {
         // check file
@@ -74,6 +75,8 @@ public class Visualizer {
 
         double currentAngle = 0.f;
         double angleGoal = 0.f;
+
+        double[] angleAtTime = new double[100];
 
         for (int i = -99; i < numberOfImages; i ++) {
             float deltaTime = 1 / 15.f;
@@ -135,7 +138,6 @@ public class Visualizer {
                     scaleVelocity = scaleDiff / 4;
                 }
             }
-            g2.drawString(String.valueOf(currentScale), 1000, 550);
             // offset
             Vec2f newOffset = new Vec2f(-(rect[2] + rect[0]) / 2 * currentScale + w/2, -(rect[3] + rect[1]) / 2 * currentScale + h / 2);
             float distance = currentOffset.distance(newOffset);
@@ -147,8 +149,6 @@ public class Visualizer {
                 currentOffset.x += deltaPos.x / distance * offsetSpeed;
                 currentOffset.y += deltaPos.y / distance * offsetSpeed;
             }
-            g2.drawString(String.valueOf(currentOffset), 1000, 600);
-            //g2.drawString(String.valueOf(lastCentrum), 1000, 700);
             // rotation
             if (i % 100 == 40 && i > 0) {
                 double bestAngle = currentAngle;
@@ -178,14 +178,48 @@ public class Visualizer {
                     }
                 }
                 angleGoal = bestAngle;
+                double fullAngleSpeed = (Math.PI / 160);
+                int sign = 1;
+                if (angleGoal - currentAngle < 0) {
+                    sign = -1;
+                }
+                int steps = (int) (Math.abs(angleGoal - currentAngle) / fullAngleSpeed) + 10;
+                if (steps >= 20) {
+                    if (steps < 50) {
+                        steps -= 10;
+                        steps *= 2;
+                        steps += 10;
+                        fullAngleSpeed /= 2;
+                    }
+                    // speed up
+                    int j = 0;
+                    for (j = 0; j < 10; j ++) {
+                        angleAtTime[j] = sign * fullAngleSpeed / 10 * (j + 1) * j / 2 + currentAngle;
+                    }
+                    // const speed
+                    for (; j < steps - 10; j ++) {
+                        angleAtTime[j] = angleAtTime[j - 1] + sign * fullAngleSpeed;
+                    }
+                    // slow down
+                    for (; j < steps; j ++) {
+                        angleAtTime[j] = angleAtTime[j - 1] + sign * fullAngleSpeed / 10 * (steps - j);
+                    }
+                    for (; j < 100; j ++) {
+                        angleAtTime[j] = angleGoal;
+                    }
+                } else if (steps > 10) {
+                    // speed up
+                    angleAtTime[0] = currentAngle + (angleGoal - currentAngle) / 100;
+                    for (int j = 1; j < 100; j ++) {
+                        angleAtTime[j] = angleAtTime[j - 1] + (angleGoal - currentAngle) / 100;
+                    }
+                } else {
+                    for (int j = 0; j < 100; j ++) {
+                        angleAtTime[j] = angleGoal;
+                    }
+                }
             }
-            double angleSpeed = Math.PI / 400; // radians per frame
-            if (Math.abs(angleGoal - currentAngle) < angleSpeed) {
-                currentAngle = angleGoal;
-            } else {
-                double angleDiff = angleGoal - currentAngle;
-                currentAngle += angleDiff / Math.abs(angleDiff) * angleSpeed;
-            }
+            currentAngle = angleAtTime[((i - 40) % 100 + 100) % 100];
             g2.drawString(String.valueOf(currentAngle), 1000, 650);
 
             // draw
@@ -193,10 +227,13 @@ public class Visualizer {
                 s.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
             }
             masterNode.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
+            g2.drawString(String.valueOf(i), 0, 35);
 
             try {
                 imageAndVideoProcessor.addImage(off_Image);
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
