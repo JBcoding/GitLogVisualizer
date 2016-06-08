@@ -9,8 +9,6 @@ import java.sql.Timestamp;
 import java.util.*;
 import java.util.List;
 
-import static com.sun.tools.doclint.Entity.curren;
-import static com.sun.tools.doclint.Entity.image;
 
 /**
  * Created by madsbjoern on 30/05/16.

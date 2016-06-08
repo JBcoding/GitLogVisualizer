@@ -59,4 +59,8 @@ public class Commit {
     public List<Change> getChanges() {
         return changes;
     }
+
+    public String getAuthor() {
+        return author;
+    }
 }
