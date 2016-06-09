@@ -60,7 +60,7 @@ public class Visualizer {
         int h = 720;
 
         List<Spring> springs = new ArrayList<>();
-        masterNode = new Node(new Vector2D(w / 2, h / 2), 10, springs);
+        masterNode = new Node(new Vector2D(w / 2, h / 2), 100, springs);
         masterNode.folder = false;
 
         float currentScale = 1.5f;
@@ -78,7 +78,7 @@ public class Visualizer {
         List<BufferedImage> lastAuthors = new LinkedList<>();
         String lastAuthorName = "";
 
-        LabelBox lb = new LabelBox("VERY LONG TITLE TO ANNOY YOU", 0, 720);
+        LabelBox lb = new LabelBox("P2-AAU", 0, 720);
 
         List<Beam> beams = new ArrayList<>();
 
@@ -100,8 +100,14 @@ public class Visualizer {
                     for (int j = 0; j < nameParts.length - 1; j ++) {
                         Node child = currentNode.findChildWithName(nameParts[j]);
                         if (child == null) {
-                            int layer = calculateLayer(currentNode.getNumberOfChildrenWitoutFolders()) + 2;
-                            child = new Node(new Vector2D((float)Math.cos(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 40 * layer + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
+                            if (currentNode.getParent() != null) {
+                                Vector2D childLocation = currentNode.getPhysicsNode().getLocation(),
+                                         parentLocation = currentNode.getParent().getPhysicsNode().getLocation();
+                                double angleToParent = Math.atan2(childLocation.y - parentLocation.y,
+                                                                  childLocation.x - parentLocation.x);
+                                angle = angleToParent + Math.random() * Math.PI / 4 - Math.PI / 8;
+                            }
+                            child = new Node(new Vector2D((float)Math.cos(angle) * 200 + currentNode.getPhysicsNode().getLocation().x, (float)Math.sin(angle) * 200 + currentNode.getPhysicsNode().getLocation().y), currentNode.getPhysicsNode().getMass(), springs);
                             child.name = nameParts[j];
                             child.folder = true;
                             currentNode.addChild(child);
@@ -257,7 +263,7 @@ public class Visualizer {
                 }
                 g2.drawString(lastAuthorName, 120, 60 + g2.getFontMetrics().getHeight() / 5 * 2);
             }
-            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset, "Frame: " + i);
+            lb.setContent(g2, "Message:", commits.get(i / 100).getText());
             try {
                 imageAndVideoProcessor.addImage(off_Image);
             } catch (IOException e) {

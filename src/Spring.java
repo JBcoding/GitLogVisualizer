@@ -29,7 +29,8 @@ public class Spring {
         int x2 = (int)(tempVec2.x);
         int y2 = (int)(tempVec2.y);
         Color oldColor = g.getColor();
-        g.setColor(new Color(oldColor.getRed(), oldColor.getGreen(), oldColor.getBlue(), (int)(Math.min(nodes[0].getAlpha(), nodes[1].getAlpha())*255)));
+        g.setColor(new Color(157, 157, 157, (int)(Math.min(nodes[0].getAlpha(), nodes[1].getAlpha())*255)));
+        g.setStroke(new BasicStroke(Math.max(4 * scale, 2)));
         g.drawLine(x1, y1, x2, y2);
         g.setColor(oldColor);
     }

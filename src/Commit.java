@@ -60,6 +60,10 @@ public class Commit {
         return changes;
     }
 
+    public String getText() {
+        return text;
+    }
+
     public String getAuthor() {
         return author;
     }

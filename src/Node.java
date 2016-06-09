@@ -122,10 +122,11 @@ public class Node {
     public void addChild(Node child) {
         children.add(child);
         child.setParent(this);
-        Spring mainSpring = new Spring(this, child, (child.folder ? 75 : 50), (child.folder ? 400 : 60), true);
+        Spring mainSpring = new Spring(this, child, (child.folder ? 75 : 200), (child.folder ? 250 : 60), true);
         allSprings.add(mainSpring);
         alpha = 1;
     }
+
 
     public void addSpring(Spring spring) {
         springs.add(spring);
@@ -195,6 +196,10 @@ public class Node {
 
     public void setParent(Node parent) {
         this.parent = parent;
+    }
+
+    public Node getParent() {
+        return parent;
     }
 
     public List<Vector2D> getListOfPositions() {
