@@ -50,6 +50,8 @@ public class Visualizer {
     }
 
     private static Node masterNode;
+
+
     public void createVideo() {
         int numberOfImages = commits.size() * 100;
         //numberOfImages = 1000;
@@ -255,6 +257,7 @@ public class Visualizer {
                 }
                 g2.drawString(lastAuthorName, 120, 60 + g2.getFontMetrics().getHeight() / 5 * 2);
             }
+            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset, "Frame: " + i);
             try {
                 imageAndVideoProcessor.addImage(off_Image);
             } catch (IOException e) {
@@ -276,7 +279,6 @@ public class Visualizer {
                     j --;
                 }
             }
-            lb.setContent(g2, "Rotation = " + currentAngle, "Scale = " + currentScale, "Offset = " + currentOffset, "Frame: " + i);
         }
     }
 

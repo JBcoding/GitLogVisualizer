@@ -45,4 +45,9 @@ public class Vector2D {
     public float distance(Vector2D vec) {
         return (float)Math.sqrt(Math.pow(x - vec.x, 2) + Math.pow(y - vec.y, 2));
     }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
 }
