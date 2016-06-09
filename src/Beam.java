@@ -40,6 +40,11 @@ public class Beam {
     }
 
     public boolean cleanUpCheck() {
-        return (alpha == 0);
+        if (alpha == 0) {
+            node = null;
+            location = null;
+            return true;
+        }
+        return false;
     }
 }

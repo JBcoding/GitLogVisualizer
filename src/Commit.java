@@ -67,4 +67,8 @@ public class Commit {
     public String getAuthor() {
         return author;
     }
+
+    public Date getDate() {
+        return date;
+    }
 }

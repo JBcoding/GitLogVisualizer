@@ -16,6 +16,7 @@ public class Node {
     private Node parent;
     private float alpha;
     private List<Spring> allSprings;
+    private FadingString fadingString;
 
     public Node(Vector2D location, float mass, List<Spring> allSprings) {
         physics = new PhysicsNode(location, mass, 20, this);
@@ -209,5 +210,21 @@ public class Node {
             positions.addAll(child.getListOfPositions());
         }
         return positions;
+    }
+
+    public void clearFadingString() {
+        fadingString = null;
+    }
+
+    public void setFadingString(FadingString fadingString) {
+        this.fadingString = fadingString;
+    }
+
+    public FadingString getFadingString() {
+        return fadingString;
+    }
+
+    public String getName() {
+        return name;
     }
 }

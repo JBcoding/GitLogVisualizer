@@ -16,7 +16,7 @@ public class Visualizer {
     private List<Commit> commits;
     private ImageAndVideoProcessor imageAndVideoProcessor;
 
-    // java -cp out/production/GitLogVisualizer/ Driver | ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 movie.mp4
+    // java -cp out/production/GitLogVisualizer/ Driver | ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 4 -bf 0 movie.mp4
 
     public Visualizer() throws FileNotFoundException {
         // check file
@@ -81,6 +81,7 @@ public class Visualizer {
         LabelBox lb = new LabelBox("P2-AAU", 0, 720);
 
         List<Beam> beams = new ArrayList<>();
+        List<FadingString> fadingStrings = new ArrayList<>();
 
         for (int i = -99; i < numberOfImages; i ++) {
             float deltaTime = 1 / 15.f;
@@ -112,6 +113,11 @@ public class Visualizer {
                             child.folder = true;
                             currentNode.addChild(child);
                         }
+                        if (child.getFadingString() == null) {
+                            FadingString fs = new FadingString(child.getName(), 2, 1, true, child.getPhysicsNode().getLocation(), child);
+                            fadingStrings.add(fs);
+                            child.setFadingString(fs);
+                        }
                         currentNode = child;
                     }
                     if (c.getChangeType() == 'A') {
@@ -120,8 +126,26 @@ public class Visualizer {
                         newChild.name = nameParts[nameParts.length - 1];
                         newChild.folder = false;
                         currentNode.addChild(newChild);
+                        FadingString fs = new FadingString(newChild.getName(), 2, 1, true, newChild.getPhysicsNode().getLocation(), newChild);
+                        fadingStrings.add(fs);
+                        newChild.setFadingString(fs);
                     } else if (c.getChangeType() == 'D') {
-                        currentNode.findChildWithName(nameParts[nameParts.length - 1]).startFading();
+                        Node theChild = currentNode.findChildWithName(nameParts[nameParts.length - 1]);
+                        if (theChild == null) {
+                            continue;
+                        }
+                        theChild.startFading();
+                        FadingString fs = new FadingString(theChild.getName(), 2, 1, true, theChild.getPhysicsNode().getLocation(), theChild);
+                        fadingStrings.add(fs);
+                        theChild.setFadingString(fs);
+                    } else if (c.getChangeType() == 'M') {
+                        Node theChild = currentNode.findChildWithName(nameParts[nameParts.length - 1]);
+                        if (theChild == null) {
+                            continue;
+                        }
+                        FadingString fs = new FadingString(theChild.getName(), 2, 1, true, theChild.getPhysicsNode().getLocation(), theChild);
+                        fadingStrings.add(fs);
+                        theChild.setFadingString(fs);
                     }
                     beams.add(new Beam(new Vector2D(50, 50), currentNode.findChildWithName(nameParts[nameParts.length - 1])));
                 }
@@ -149,13 +173,15 @@ public class Visualizer {
                 scaleGoal = newScale;
             }
             float scaleDiff = scaleGoal - currentScale;
-            if (scaleDiff != 0) {
+            if (Math.abs(Math.log(scaleGoal) / Math.log(2) - Math.log(currentScale) / Math.log(2)) >= .005) {
                 scaleVelocity += scaleDiff / Math.abs(scaleDiff) * deltaTime * scaleMaxAcceleration;
                 scaleVelocity *= .90f;
                 currentScale += scaleVelocity * deltaTime;
                 if (Math.abs(scaleVelocity) / Math.abs(scaleDiff) > 1 / 4.f) {
                     scaleVelocity = scaleDiff / 4;
                 }
+            } else {
+                currentScale = scaleGoal;
             }
             // offset
             Vector2D newOffset = new Vector2D(-(rect[2] + rect[0]) / 2 * currentScale + w/2 + 50, -(rect[3] + rect[1]) / 2 * currentScale + h / 2);
@@ -246,7 +272,10 @@ public class Visualizer {
                 b.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
             }
             masterNode.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
-            if (i > 0) {
+            for (FadingString fs : fadingStrings) {
+                fs.draw(g2, currentScale, currentOffset, currentAngle, rectCentrum);
+            }
+            if (i >= 0) {
                 if (lastAuthors.size() == 6) {
                     BufferedImage img = lastAuthors.get(5);
                     g2.drawImage(img, 20, 20 + 100 * 4, 80, 80, null);
@@ -261,9 +290,11 @@ public class Visualizer {
                         }
                     }
                 }
-                g2.drawString(lastAuthorName, 120, 60 + g2.getFontMetrics().getHeight() / 5 * 2);
+                if (i % 100 == 0) {
+                    fadingStrings.add(new FadingString(lastAuthorName, 2, 1, false, new Vector2D(120, 60 + g2.getFontMetrics().getHeight() / 5 * 2), null));
+                }
             }
-            lb.setContent(g2, "Message:", commits.get(i / 100).getText());
+            lb.setContent(g2, "Message:", commits.get(i / 100).getText(), "Date: " + commits.get(i / 100).getDate(), "Scale: " + currentScale);
             try {
                 imageAndVideoProcessor.addImage(off_Image);
             } catch (IOException e) {
@@ -282,6 +313,15 @@ public class Visualizer {
             for (int j = 0; j < beams.size(); j ++) {
                 if (beams.get(j).cleanUpCheck()) {
                     beams.remove(j);
+                    j --;
+                }
+            }
+            for (FadingString fs : fadingStrings) {
+                fs.update(deltaTime);
+            }
+            for (int j = 0; j < fadingStrings.size(); j ++) {
+                if (fadingStrings.get(j).cleanUpCheck()) {
+                    fadingStrings.remove(j);
                     j --;
                 }
             }
