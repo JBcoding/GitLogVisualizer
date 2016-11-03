@@ -78,7 +78,7 @@ public class Visualizer {
         List<BufferedImage> lastAuthors = new LinkedList<>();
         String lastAuthorName = "";
 
-        LabelBox lb = new LabelBox("P2-AAU", 0, 720);
+        LabelBox lb = new LabelBox("GitLogVisualizer", 0, 720);
 
         List<Beam> beams = new ArrayList<>();
         List<FadingString> fadingStrings = new ArrayList<>();
